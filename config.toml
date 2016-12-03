@@ -1,0 +1,44 @@
+baseurl = "http://replace-this-with-your-hugo-site.com/"
+title = "Think Different"
+languageCode = "en-us"
+paginate = 5
+disqusShortname = "unconventionalco"
+
+[taxonomies]
+    tag = "tags"
+    category = "categories"
+
+[params]
+    # Render the rotating globe in the sidebar
+    showglobe = true
+
+    analytics = "SHORT-CODE-HERE"
+
+    # Social buttons for sidebar
+    github = "https://github.com/bryanwongbh"
+    twitter = "https://twitter.com/bryanwongbh"
+    linkedin = "https://my.linkedin.com/in/bryanwongbh"
+    website = "https://www.bryanwongbh.com"
+    email = "bryanwongbh@gmail.com"
+
+    # Header Title for the main page
+    header = "Everyone is born a genius; it is the art of perception that molds us to be who we are"
+
+    # Sidebar profile picture
+    profilepic = "images/displayPic.jpg"
+
+    # Title/subtitle for the sidebar
+    subtitle = "Investment | Entrepreneurship | Business"
+
+    # Nav links below the profile picture
+    [[params.navlinks]]
+    name = "About"
+    url = "about/"
+
+    [[params.navlinks]]
+    name = "Blog"
+    url = "post/"
+
+    [[params.navlinks]]
+    name = "Books"
+    url = "books/"

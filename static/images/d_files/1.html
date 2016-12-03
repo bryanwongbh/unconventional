@@ -1,0 +1,931 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html data-ember-extension="1"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <link href="1_data/css.css" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="1_data/2a3d2c34377f.css" type="text/css">
+        
+        <title>AGE_66_KINGDOM_7_17</title>
+
+        <script src="d_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="1_data/9a54a29258b7.js"></script>
+        <script type="text/javascript">
+
+            // Figure out offset between client and server.
+            function humanizeTimestamp(timestamp, now) {
+                d = new Date(timestamp);
+                dOffset = new Date(timestamp);
+                var timestampStr = "";
+                if (new Date(now - d).getHours() > 12) {
+                    timestampStr += ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][dOffset.getDay()] + ", ";
+                }
+                var hours = (dOffset.getHours() < 10 ? '0' : '') + dOffset.getHours();
+                var minutes = (dOffset.getMinutes() < 10 ? '0' : '') + dOffset.getMinutes();
+                timestampStr +=  hours + ":" + minutes;
+                return timestampStr;
+            }
+
+            function addMessage(display_name, message, time, now) {
+                // Add given message to the conversation, by cloning the empty node.
+                var messageNode = $('#empty-message').clone().removeAttr('id').show();
+                messageNode.find('.received-sender').html(display_name);
+                messageNode.find('.received-message-text').html(message);
+                messageNode.find('.received-message-time').html(humanizeTimestamp(time, now));
+                messageNode.appendTo('#conversation');
+                // Currently only Chrome is supported
+                // If this is the first batch of messages, don't do notifications, that would be annoying
+                if(!window.loadingMessages && display_name != $('.display-name').text())
+                    showNotification(display_name + ": " + message);
+            }
+
+            function showNotification(message) {
+                if(typeof window.webkitNotifications == 'undefined' || window.webkitNotifications.checkPermission() != 0)
+                    return;
+                title = 'Reverb IM: AGE_66_KINGDOM_7_17';
+                popup = window.webkitNotifications.createNotification('/static/home/images/reverb-red.png', title, message);
+                popup.show();
+                setTimeout(function(){popup.cancel();}, '10000');
+            }
+
+            $(document).ready(function(eventObject)
+            {
+                window.reverb_disconnected = false;
+                var reconnect_timeout = 200;
+                var current_display_name = $('.display-name').val();
+
+                
+
+                // Setup a handler for the display name field.
+                function updateDisplayName(new_display_name) {
+                    if(new_display_name == "") {
+                        $('.display-name').show();
+                        $('.display-name').focus();
+                    }
+                    else {
+                         // Update the server about the display name change, so that we can default to it on page reloads.
+                        $('.display-name-error').hide();
+                        $.ajax({
+                            type: 'POST',
+                            url: "http://reverbim.com/chatserver/chat/set_display_name/7ea6a238/AGE_66_KINGDOM_7_17",
+                            data: {
+                                display_name: new_display_name,
+                                old_display_name: current_display_name
+                            },
+                            error: function(data){
+                                $('.display-name-error').text(data.responseText).show();
+                                $('.display-name').focus();
+                            },
+                            success: function(data) {
+                                current_display_name = new_display_name;
+                                $('.display-name').val(current_display_name);
+                                _gaq.push(['_trackEvent', 'ChangeName', '7ea6a238', '' ]);
+                            }
+                        });
+                        $('.change-name').hide();
+                        $('.text-entry').focus();
+                    }
+                }
+
+                // Used to make sure the text entry box is at the bottom
+                function setHeights(){
+                   
+                    var h = $(window).height()-($('.compose').height()+$('.status-bar').height()+11);
+                    $('.conversation').height(h);
+                    $('.scrollbar-pane').height('auto');
+                }
+                setHeights();
+
+                // Get and display the number of users in this channel
+                function refreshNumUsers() {
+                    $.getJSON('/chat/get_num_users/7ea6a238/AGE_66_KINGDOM_7_17', function(data) {
+                            updateNumUsers(data.num_users);
+                    });
+                }
+                function getUserList() {
+                    $.getJSON('/chat/get_user_list/7ea6a238/AGE_66_KINGDOM_7_17', function(data) {
+                            updateUserList(data.user_list);
+                    });
+                }
+                function updateNumUsers(num_users){
+                            $('.status-bar').find('.status-online-users').html('Online users: ' + ( num_users ));
+                }
+                function updateUserList(user_list){
+                    $('.user-list').html('<div class=\'user-list-element\'>' + ( user_list.join("</div><div class=\'user-list-element\'>") + '</div>'));
+                }
+
+                refreshNumUsers();
+                // Refresh the number of users if clicked on
+                $('.status-online-users').click(function() {
+                        refreshNumUsers();
+                        getUserList();
+                        $('.user-list').slideToggle();
+                });
+                $('.user-list').click(function() {
+                        $('.user-list').slideToggle();
+                });
+
+                // Set name
+                $('.display-name').keypress(function(e) {
+                    if(e.keyCode == 13) {
+                        // Prevent the carriage return being entered.
+                        e.preventDefault();
+                        updateDisplayName($('.display-name').val());
+                    }
+                });
+
+                // Truncate display name to 64 characters
+                $('.display-name').keyup(function(){
+                    var text = $(this).val();
+                    var max_length = 64;
+                    if(text.length > max_length){
+                        $(this).val(text.substr(0, max_length));
+                    }
+                });
+
+                // Send message
+                $('.text-entry').keypress(function(e) {
+                    if(e.keyCode == 13) {
+                        // Prevent the carriage return being entered.
+                        e.preventDefault();
+                        $('.ajax-error').hide();
+                        // If non-whitepsace has been entered
+                        if($.trim($('.text-entry').val()) != '') {
+                            
+                            // Update the server about the display name change, so that we can default to it on page reloads.
+                            $.ajax({
+                                type: 'POST',
+                                url: "http://reverbim.com/chatserver/chat/send_message/7ea6a238/AGE_66_KINGDOM_7_17",
+                                data: {
+                                    
+                                     ticket: "vYI9fsImXUp+wCtFk6VJR0QnkskUDLdOyAZiq+5OT859hTPvsjArZ7Alub1PbqtFXpkk6+Tt5BlKvf5Rfx3XV7UoJ8C6LFmAMkfZ2jojFj6kLIOpVXZnQCMmzOTmHDiI", 
+                                    
+                                    message: $('.text-entry').val().replace(/\xa0/g, ' ')
+                                },
+                                error: function(data){
+                                    $('.ajax-error').text(data.responseText).show();
+                                    _gaq.push(['_trackEvent', 'Error', '7ea6a238', 'AGE_66_KINGDOM_7_17']);
+                                },
+                                success: function(data) {
+                                // Tell Google analytics about the length of the message sent
+                                _gaq.push(['_trackEvent', 'Message', '7ea6a238', '', $('.text-entry').val().length ]);
+                                }
+                            });
+                            $('.text-entry').val('');
+                        }
+                    }
+                });
+
+                var last_message = null;
+                var scroller = $('#conversation').scrollbar({
+                    moveContainerId: true,
+                    arrows: false
+                });
+                $(window).resize(function(){
+                        setHeights();
+                        scroller.scrollbar('repaint');
+                        scroller.scrollbar('scrollto', 'bottom');
+                });
+
+                function handlePublish(data, now) {
+                    now = typeof now !== 'undefined' ? now : new Date();
+                    if(data) {
+                        var messages = data[0];
+                        var num_users = data[1];
+                        updateNumUsers(num_users);
+
+                        // Add each message to the conversation.
+                        $.each(messages, function(index, message) {
+                            if(message.message.length > 0)
+                                addMessage(message.display_name, message.message, message.time, now);
+                            // else put logout notifications here
+                            last_message = message.id;
+                        });
+                        scroller.scrollbar('repaint');
+                        scroller.scrollbar('scrollto', 'bottom');
+                    }
+                    // Subscribe to the chat server for updates.
+                    var request = {
+                        type: 'GET',
+                        
+                            url: "http://reverbim.com/chatserver/channel/ticketed-7ea6a238-AGE_66_KINGDOM_7_17",
+                        
+                        success: handlePublish,
+                        error: function() {
+                            markAsDisconnected(reconnect_timeout);
+                            if(window.reconnect_timer)
+                                clearTimeout(window.reconnect_timer);
+                            window.reconnect_timer = setTimeout(handlePublish, reconnect_timeout);
+                            // Exponential backoff
+                            reconnect_timeout *= 2;
+                        },
+                        dataType: 'json'
+                    };
+                    request.data = {
+                        
+                             ticket: 'vYI9fsImXUp+wCtFk6VJR0QnkskUDLdOyAZiq+5OT859hTPvsjArZ7Alub1PbqtFXpkk6+Tt5BlKvf5Rfx3XV7UoJ8C6LFmAMkfZ2jojFj6kLIOpVXZnQCMmzOTmHDiI'
+                        
+                    };
+                    if(last_message) {
+                        request.data.last_message = last_message;
+                    }
+                    markAsConnected();
+                    $.ajax(request);
+                }
+
+                // Disconnect/reconnect stuff
+                function markAsDisconnected(reconnect_timeout) {
+                    if(!window.reverb_disconnected) {
+                        $('.text-entry').prop("disabled",true);
+                        num_seconds = Math.ceil(reconnect_timeout/1000);
+                        window.reverb_disconnected = true;
+                        showSecondsToReconnect(num_seconds);
+                        $('.disconnect-box').show();
+                    }
+                }
+                function showSecondsToReconnect(countdown) {
+                    if(window.reverb_disconnected && countdown > 0) {
+                        $('.disconnect-message').html("Disconnected<br/>Reconnecting in " + countdown + " seconds.<br/>");
+                        if(window.countdown_timer)
+                            clearTimeout(countdown_timer);
+                        window.countdown_timer = setTimeout(function(){showSecondsToReconnect(countdown-1);}, 1000);
+                    }
+                }
+                function markAsConnected() {
+                    $('.text-entry').prop("disabled",false);
+                    $('.disconnect-box').hide();
+                    window.reverb_disconnected = false;
+                }
+                $('.reconnect-link').click(function() {
+                    handlePublish();
+                    $('.disconnect-message').html("Reconnecting...");
+                });
+
+
+                function initMessages() {
+                    // Get the message history, and initially populate the conversation using the handlePublish method.
+                    var messages = $.parseJSON('[{\"message\": \"Early indications show that our operation was a success. Our thieves have caused rioting. It is expected to last 17 days.\", \"display_name\": \"Frostbites\", \"id\": \"3f6236ef-aec7-4ee5-81dc-9647edb22bcd\", \"time\": 1449464666000}, {\"message\": \"Planet 10\", \"display_name\": \"Frostbites\", \"id\": \"286c3feb-575e-49cc-8b9b-3c43862f633e\", \"time\": 1449464668000}, {\"message\": \"lol nice\", \"display_name\": \"Rough Divide\", \"id\": \"e8f1f2c1-3421-4dfe-b492-106bbfc87737\", \"time\": 1449464672000}, {\"message\": \"hehe\", \"display_name\": \"Frostbites\", \"id\": \"84c78235-751b-468c-b724-79bb33495fd3\", \"time\": 1449464676000}, {\"message\": \"k ice, later use your mana\", \"display_name\": \"Rough Divide\", \"id\": \"72d3614e-bc56-46a4-a287-916cc9fa87fe\", \"time\": 1449464685000}, {\"message\": \"gtg be back in 2 ticks time\", \"display_name\": \"Frostbites\", \"id\": \"66fac6bb-b1a4-4a3f-94f5-5e0da5fe9e7f\", \"time\": 1449464686000}, {\"message\": \"fb the merch\", \"display_name\": \"Rough Divide\", \"id\": \"f4897e4c-91bb-4c81-9404-8db21a96bbc5\", \"time\": 1449464689000}, {\"message\": \"kk\", \"display_name\": \"Rough Divide\", \"id\": \"2b2bea6e-c9fb-4451-9544-5ec3de1c2694\", \"time\": 1449464691000}, {\"message\": \"drake is so cheap\", \"display_name\": \"Rough Divide\", \"id\": \"ebf37c5a-db52-42fb-861b-9606d88b2672\", \"time\": 1449464724000}, {\"message\": \"so used to see drake cost like 13mil\", \"display_name\": \"Rough Divide\", \"id\": \"72c92245-6bc6-4b69-89ed-3afe0774807d\", \"time\": 1449464730000}, {\"message\": \"=.=\", \"display_name\": \"Rough Divide\", \"id\": \"b25585f3-33b4-403e-98b1-0e1e51b67588\", \"time\": 1449464731000}, {\"message\": \"lol.\", \"display_name\": \"CirrusMinor\", \"id\": \"2ab059b1-504f-4118-9a1b-ec421adca90f\", \"time\": 1449464740000}, {\"message\": \"back\", \"display_name\": \"Legacy of War\", \"id\": \"ca42362d-88e2-46c0-a711-e880cc4f823c\", \"time\": 1449464862000}, {\"message\": \"yo war\", \"display_name\": \"Rough Divide\", \"id\": \"9244b74e-54ad-4148-bf6f-7c42e574f8d7\", \"time\": 1449464872000}, {\"message\": \"pshhhh\", \"display_name\": \"Legacy of War\", \"id\": \"aa97677e-484a-4543-8d5b-1af63be5a894\", \"time\": 1449464878000}, {\"message\": \"use your thieves and steal from kitar\", \"display_name\": \"Rough Divide\", \"id\": \"234956cd-6d14-491c-9381-ba15acba11d0\", \"time\": 1449464879000}, {\"message\": \"i got hit\", \"display_name\": \"Legacy of War\", \"id\": \"ca292289-f3d7-4983-aedd-613917c71dfc\", \"time\": 1449464880000}, {\"message\": \"so gay\", \"display_name\": \"Legacy of War\", \"id\": \"af7045cb-eba9-4fe5-b2d6-06e5a415f863\", \"time\": 1449464881000}, {\"message\": \"or joom\", \"display_name\": \"Rough Divide\", \"id\": \"7e4d1f5c-7201-4f6c-9973-9b67884a35f2\", \"time\": 1449464890000}, {\"message\": \"their tpa is quite pathetic\", \"display_name\": \"Rough Divide\", \"id\": \"9aa4d851-ddb8-4338-9570-03f903d9b00c\", \"time\": 1449464896000}, {\"message\": \"even orcs can teal\", \"display_name\": \"Rough Divide\", \"id\": \"93880ffc-7cca-40ba-b96b-d8669b9a02f5\", \"time\": 1449464901000}, {\"message\": \"steal\", \"display_name\": \"Rough Divide\", \"id\": \"10a15347-47d7-4b5e-a1a4-a0aa14ea5db7\", \"time\": 1449464902000}, {\"message\": \"Early indications show that our operation was a success. Our thieves have returned with 16,218 gold coins.\", \"display_name\": \"Legacy of War\", \"id\": \"303147d5-a728-46f9-8f1e-98230e135b91\", \"time\": 1449464922000}, {\"message\": \"oh low in gold d\", \"display_name\": \"Rough Divide\", \"id\": \"58c2e29f-5961-4528-b581-40172c8ec74f\", \"time\": 1449464938000}, {\"message\": \"can ignore lol\", \"display_name\": \"Rough Divide\", \"id\": \"571e330e-b06f-4efd-a6a9-7ec207de9ee9\", \"time\": 1449464940000}, {\"message\": \"just robbed about 200k off Joom\", \"display_name\": \"Legacy of War\", \"id\": \"19409e73-c0ae-48f7-925a-3a10c4fcddd8\", \"time\": 1449464992000}, {\"message\": \"o.o\", \"display_name\": \"Rough Divide\", \"id\": \"01d16c9f-d755-4dbe-ba5e-2143cf274b6d\", \"time\": 1449465001000}, {\"message\": \"want me to build dragon?\", \"display_name\": \"Legacy of War\", \"id\": \"948b3707-6d37-43dc-94f5-0a3cbfcf8021\", \"time\": 1449465009000}, {\"message\": \"119,999 gold coins are still needed to complete development.\", \"display_name\": \"Rough Divide\", \"id\": \"cf53e555-2636-4cdb-9338-86a33eb1ef9a\", \"time\": 1449465009000}, {\"message\": \"yea fly it\", \"display_name\": \"Rough Divide\", \"id\": \"1d5a6750-2104-44b4-9dfb-0374890acbf3\", \"time\": 1449465013000}, {\"message\": \"done\", \"display_name\": \"Legacy of War\", \"id\": \"a7a3efb5-20f2-4c46-8f9b-0122ec7134fa\", \"time\": 1449465022000}, {\"message\": \"nais\", \"display_name\": \"Rough Divide\", \"id\": \"2d5fba90-0511-43a8-86ce-1f91bbe6365f\", \"time\": 1449465028000}, {\"message\": \":D\", \"display_name\": \"Legacy of War\", \"id\": \"90c3c9ac-1836-416f-88c7-a28d27f6a9d2\", \"time\": 1449465028000}, {\"message\": \" The Gold Dragon Project for Money (1:2) has begun. The total cost will be 6,225,601 gold coins. \", \"display_name\": \"Rough Divide\", \"id\": \"cce8b8f4-bfe5-40a5-ad15-4fb871b65c84\", \"time\": 1449465039000}, {\"message\": \"someone som their king and steward\", \"display_name\": \"Rough Divide\", \"id\": \"765560d9-3966-44a1-b29f-7de890010211\", \"time\": 1449465065000}, {\"message\": \"I can hit cordelia once\", \"display_name\": \"Legacy of War\", \"id\": \"c66f29ce-7f12-4e8b-a368-cdf576f5c1a8\", \"time\": 1449465073000}, {\"message\": \"if u hit, what is your extra O?\", \"display_name\": \"Rough Divide\", \"id\": \"5efa7c0c-8ac2-4acd-b640-2fd3b40257fc\", \"time\": 1449465091000}, {\"message\": \"som king done\", \"display_name\": \"Oops of Core\", \"id\": \"595870ca-4c17-40ff-8bbe-e460db3ae4cb\", \"time\": 1449465093000}, {\"message\": \"40.2k mod def\", \"display_name\": \"Oops of Core\", \"id\": \"158b3a69-0641-41b5-bdb8-be563113e229\", \"time\": 1449465098000}, {\"message\": \"very little, maybe 10k\", \"display_name\": \"Legacy of War\", \"id\": \"ba456ab3-2320-4319-8f8d-536c8d05d17c\", \"time\": 1449465102000}, {\"message\": \"if that\", \"display_name\": \"Legacy of War\", \"id\": \"d09bc1e0-5377-4281-b364-db6181008651\", \"time\": 1449465104000}, {\"message\": \"ste I mean\", \"display_name\": \"Oops of Core\", \"id\": \"f29e414e-0c93-45b1-bfd7-44e69dad7540\", \"time\": 1449465106000}, {\"message\": \"king 64.7k mod def\", \"display_name\": \"Oops of Core\", \"id\": \"7e3bf397-84e8-4aa7-b00e-b7a1943f83a0\", \"time\": 1449465126000}, {\"message\": \"oops of core\", \"display_name\": \"Rough Divide\", \"id\": \"374778c3-0809-468f-acde-34ec958c3bfe\", \"time\": 1449465133000}, {\"message\": \"have u joined umunk?\", \"display_name\": \"Rough Divide\", \"id\": \"55c53b0f-9a10-4979-b49c-bc9d53075ab0\", \"time\": 1449465136000}, {\"message\": \"not yet\", \"display_name\": \"Oops of Core\", \"id\": \"dde8d2d9-d2e9-4f5c-be36-261bbc79bd57\", \"time\": 1449465141000}, {\"message\": \"lemme knwo your desired username\", \"display_name\": \"Rough Divide\", \"id\": \"d125e8b6-bec0-4b11-aea7-d0c3a5418259\", \"time\": 1449465146000}, {\"message\": \"so that whenever u do sot/som\", \"display_name\": \"Rough Divide\", \"id\": \"b781ec23-16ae-4255-babd-38be946bb66a\", \"time\": 1449465151000}, {\"message\": \"it\'s updated automatically\", \"display_name\": \"Rough Divide\", \"id\": \"93b29666-d482-4884-8a0e-980732e8dcde\", \"time\": 1449465155000}, {\"message\": \"quite a neat intel tool\", \"display_name\": \"Rough Divide\", \"id\": \"ec99a732-d698-4696-9a27-f76c50a12620\", \"time\": 1449465160000}, {\"message\": \"user give me corerk\", \"display_name\": \"Oops of Core\", \"id\": \"9095c663-0c3f-4721-a8f4-5b4331fd194f\", \"time\": 1449465161000}, {\"message\": \"kk\", \"display_name\": \"Rough Divide\", \"id\": \"9d4a0a56-2e27-4833-bbf8-de33a69fb69a\", \"time\": 1449465164000}, {\"message\": \"Zank\", \"display_name\": \"Legacy of War\", \"id\": \"821486f6-a3c2-42d6-a65c-5a825f935603\", \"time\": 1449465175000}, {\"message\": \"done\", \"display_name\": \"Rough Divide\", \"id\": \"9acf38b6-d6eb-4db6-a423-980df22b474c\", \"time\": 1449465176000}, {\"message\": \"want me to hit cord?\", \"display_name\": \"Legacy of War\", \"id\": \"501001bd-eeaf-4587-bd54-38a982e45882\", \"time\": 1449465180000}, {\"message\": \"go and follow instruction in forum\", \"display_name\": \"Rough Divide\", \"id\": \"72a68bf3-9ad2-4d1a-9715-c1f04442a384\", \"time\": 1449465189000}, {\"message\": \"war\", \"display_name\": \"Rough Divide\", \"id\": \"ee3bafa2-0f84-4455-bcc1-d8c8b1a36b4b\", \"time\": 1449465190000}, {\"message\": \"yes\", \"display_name\": \"Rough Divide\", \"id\": \"0c179b63-6cd8-413d-9452-e7f258e3f361\", \"time\": 1449465191000}, {\"message\": \"hit\", \"display_name\": \"Rough Divide\", \"id\": \"89c6edfe-622c-4d1b-b835-205fb91cb910\", \"time\": 1449465193000}, {\"message\": \"kk\", \"display_name\": \"Legacy of War\", \"id\": \"d0eafcac-adde-4fc4-ba25-9e9e6b12cf5e\", \"time\": 1449465194000}, {\"message\": \"extra O go hit those nub inactive lol\", \"display_name\": \"Rough Divide\", \"id\": \"55be05f6-3882-4f1c-b541-9d3f9de41dcc\", \"time\": 1449465204000}, {\"message\": \"anon or no?\", \"display_name\": \"Legacy of War\", \"id\": \"2eb25278-f648-4b82-8bcd-04366df79f2b\", \"time\": 1449465268000}, {\"message\": \"nope\", \"display_name\": \"Rough Divide\", \"id\": \"f4afacda-2a82-41ce-9205-cacf697f0b82\", \"time\": 1449465273000}, {\"message\": \"quo if u can hit first\", \"display_name\": \"Rough Divide\", \"id\": \"1a6b7dec-88ee-4ddf-94d6-55ce37a1465e\", \"time\": 1449465277000}, {\"message\": \"tht\'d be great\", \"display_name\": \"Rough Divide\", \"id\": \"6777be7b-f7f2-41a6-a630-f7a546336328\", \"time\": 1449465279000}, {\"message\": \"Your forces arrive at Cordelia (1:2). A tough battle took place, but we have managed a victory! Your army has taken 114 acres! 74 acres of buildings survived and can be refitted to fit our needs. We also gained 285 specialist training credits. Taking full control of your new land will take 11.83 days, and will be available on May 1 of YR13.\\nWe lost 300 Ogres and 300 horses in this battle.\\nWe killed about 530 enemy troops. We also imprisoned 220 additional troops in our Dungeons.\\nOur forces will be available again in 11.83 days (on May 1 of YR13).\", \"display_name\": \"Legacy of War\", \"id\": \"b64fd463-2495-47ef-a8b6-870230e01410\", \"time\": 1449465284000}, {\"message\": \"sorry, too late\", \"display_name\": \"Legacy of War\", \"id\": \"bff549be-1090-4865-99d5-98143244d59e\", \"time\": 1449465287000}, {\"message\": \"oh nvm bruh\", \"display_name\": \"Rough Divide\", \"id\": \"3de0accb-240f-49c2-87a1-b2c4a6bf9843\", \"time\": 1449465293000}, {\"message\": \"nice grab\", \"display_name\": \"Rough Divide\", \"id\": \"d9c3f467-0def-4e48-825c-561c44643593\", \"time\": 1449465299000}, {\"message\": \"<3 emmy\", \"display_name\": \"Rough Divide\", \"id\": \"ae92a8db-e44d-4257-8706-8a81d7787af4\", \"time\": 1449465304000}, {\"message\": \"I have 12.3k leftover offense\", \"display_name\": \"Legacy of War\", \"id\": \"d6ec08d2-8a88-4581-8511-b89534cf5969\", \"time\": 1449465317000}, {\"message\": \"and 1 gen\", \"display_name\": \"Legacy of War\", \"id\": \"a7314c64-35c5-4297-9caa-be04053de99c\", \"time\": 1449465320000}, {\"message\": \"chekc if u can break yomi\", \"display_name\": \"Rough Divide\", \"id\": \"f30ba9d3-7533-4edb-b30f-38738acde865\", \"time\": 1449465327000}, {\"message\": \"else just hit returnto\", \"display_name\": \"Rough Divide\", \"id\": \"5bded794-af25-4026-80fb-1c537ef8ae20\", \"time\": 1449465333000}, {\"message\": \"i show Yomi has 21k def atm\", \"display_name\": \"Legacy of War\", \"id\": \"643ed9f5-9830-4244-93de-490f020566e8\", \"time\": 1449465346000}, {\"message\": \"too high\", \"display_name\": \"Legacy of War\", \"id\": \"18a71013-4a64-4135-b5cf-708e8511b061\", \"time\": 1449465349000}, {\"message\": \"k just hit return to\", \"display_name\": \"Rough Divide\", \"id\": \"14b76cc7-9ade-46f8-a924-efac79fe0de5\", \"time\": 1449465364000}, {\"message\": \"I hit uto w/ 5K\", \"display_name\": \"CirrusMinor\", \"id\": \"a604082f-ab3f-4f94-8ceb-fd220d37a77d\", \"time\": 1449465366000}, {\"message\": \"trad?\", \"display_name\": \"Legacy of War\", \"id\": \"4398edad-d8a7-414f-9ac2-032e1a0a254f\", \"time\": 1449465367000}, {\"message\": \"plunder if u can\", \"display_name\": \"Rough Divide\", \"id\": \"851858a1-d8aa-4054-a81f-74ca859254e9\", \"time\": 1449465374000}, {\"message\": \"still got 300k+ gold\", \"display_name\": \"Rough Divide\", \"id\": \"94ab5a7d-52bc-4b80-b3e6-afd2930218f0\", \"time\": 1449465379000}, {\"message\": \"k will plunder\", \"display_name\": \"Legacy of War\", \"id\": \"56543156-198b-4d23-945e-3b62ef5937a9\", \"time\": 1449465388000}, {\"message\": \"want funds to drake or should I pump prov?\", \"display_name\": \"Legacy of War\", \"id\": \"8d82a257-358d-45ad-b743-fb70b566ad99\", \"time\": 1449465395000}, {\"message\": \"pump prob\", \"display_name\": \"Rough Divide\", \"id\": \"37960fc5-9b91-4962-b2e6-7c3cde0c0323\", \"time\": 1449465407000}, {\"message\": \"prov first\", \"display_name\": \"Rough Divide\", \"id\": \"2c651535-e3a7-4da9-84ad-b08f90cf3fb5\", \"time\": 1449465410000}, {\"message\": \"lets see what they\'re gonna do with emerald drake\", \"display_name\": \"Rough Divide\", \"id\": \"b648db43-2cc5-45f3-a1f7-ab4a076c3693\", \"time\": 1449465423000}, {\"message\": \"Your forces arrive at ReturntoUto (1:2). Your generals report a tough but resounding victory on the battlefields! Your army looted 65,407 gold coins, 21,031 bushels and 1,731 runes!\\nWe lost 33 Ogres and 33 horses in this battle.\\nWe killed about 106 enemy troops.\\nOur forces will be available again in 10.35 days (on April 23 of YR13).\\nOur troops have brought back the plague from the people of ReturntoUto (1:2)!\", \"display_name\": \"Legacy of War\", \"id\": \"abe99e2b-01a9-4c26-9086-f47d923afb64\", \"time\": 1449465428000}, {\"message\": \"not much on gains :(\", \"display_name\": \"Legacy of War\", \"id\": \"1104ca40-9771-40a5-9755-d4120d166783\", \"time\": 1449465435000}, {\"message\": \"not bad\", \"display_name\": \"Rough Divide\", \"id\": \"5e5da272-4efa-4211-8456-0026dcdf121a\", \"time\": 1449465436000}, {\"message\": \"65k/300k\", \"display_name\": \"Rough Divide\", \"id\": \"da70770e-8b47-4242-a9ed-472b6db7e667\", \"time\": 1449465445000}, {\"message\": \"yea not terrible\", \"display_name\": \"Legacy of War\", \"id\": \"1c90a5c3-c4c0-4c31-b07f-0a4636e8051d\", \"time\": 1449465450000}, {\"message\": \"about 20% of his stuff looted\", \"display_name\": \"Rough Divide\", \"id\": \"6f55ebcc-bcfb-49db-8e17-12428d5ed0fa\", \"time\": 1449465453000}, {\"message\": \"especially considering size diff\", \"display_name\": \"Legacy of War\", \"id\": \"6812c1e3-1f58-4cc1-80a5-2acc608287cf\", \"time\": 1449465455000}, {\"message\": \"yep yep\", \"display_name\": \"Rough Divide\", \"id\": \"8b1397b1-5ee5-4234-b373-d3b6954e4c72\", \"time\": 1449465469000}, {\"message\": \"kk\", \"display_name\": \"Legacy of War\", \"id\": \"48766f92-39bd-4dd8-96b7-cf7ddb2d9f78\", \"time\": 1449465473000}, {\"message\": \"lets wrap up this season with a good war\", \"display_name\": \"Legacy of War\", \"id\": \"ee7663cb-cb32-4b65-8437-25c8180d5ac1\", \"time\": 1449465478000}, {\"message\": \"yeap\", \"display_name\": \"Rough Divide\", \"id\": \"d0f80f6c-4427-4541-80a1-0a7358470dd1\", \"time\": 1449465485000}, {\"message\": \"even if it doesnt end, lets stomp a mudhole in their ass\", \"display_name\": \"Legacy of War\", \"id\": \"64818046-b463-45c6-b084-d148c8d418d0\", \"time\": 1449465487000}, {\"message\": \"mages, pls FB One Toast\", \"display_name\": \"Rough Divide\", \"id\": \"52025e91-0e10-4ec3-9dbe-77ac6a9ea0ce\", \"time\": 1449465494000}, {\"message\": \"PRETTY PLS\", \"display_name\": \"Rough Divide\", \"id\": \"5a036bbf-2b3b-4d7d-8eef-951d1a2191dc\", \"time\": 1449465500000}]');
+                    var data = [messages,0];
+                    window.loadingMessages = true;
+                    // Store the current time on the server.
+                    handlePublish(data, new Date(1449465504108));
+                    setTimeout(function(){window.loadingMessages = false;}, '5000');
+                }
+
+                $('.scrollbar-handle-container').ready(initMessages);
+
+                // Menu
+                $('.menu').click(function() {
+                        $('.menu').toggle();
+                });
+                $('.menu-button').click(function() {
+                        $('.menu').toggle();
+                        _gaq.push(['_trackEvent', 'StarButton', '7ea6a238', 'AGE_66_KINGDOM_7_17']);
+                });
+                $('.menu-change-username').click(function() {
+                    $('.change-name').show();
+                    $('.display-name').focus();
+                });
+
+                // Chrome notification stuff
+                if(window.webkitNotifications){
+                    if(window.webkitNotifications.checkPermission() == 0) {
+                        $('.menu-enable-notifications').remove();
+                    }
+                    else {
+                        $('.menu-enable-notifications').click(function() {
+                            window.webkitNotifications.requestPermission();
+                        });
+                    }
+                }
+
+
+                // Window active
+                window.isActive = true;
+                $(window).focus(function() { window.isActive = true;});
+                $(window).blur(function() { window.isActive = false;});
+
+                // Highlight container div when .text-entry is focused
+                $('.text-entry').focus(function() {
+                    $('.text-entry-outer').css("border-width","2px");
+                });
+                $('.text-entry').blur(function() {
+                    $('.text-entry-outer').css("border-width","1px");
+                });
+
+                // Limit number of characters that can be typed into the compose field
+                var content_id = 'message';
+
+                max = 1024;
+
+                //binding keyup/down events on the contenteditable div
+                $('.'+content_id).keyup(function(e){ check_charcount(content_id, max, e); });
+                $('.'+content_id).keydown(function(e){ check_charcount(content_id, max, e); });
+
+                function check_charcount(content_id, max, e)
+                {
+                    if(e.which != 8 && $('.'+content_id).text().length > max)
+                    {
+                        // $('#'+content_id).text($('#'+content_id).text().substring(0, max));
+                        e.preventDefault();
+                        _gaq.push(['_trackEvent', 'Max Length', '7ea6a238', 'AGE_66_KINGDOM_7_17', $('.'+content_id).text().length ]);
+
+                    }
+                }
+            });
+
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-10656365-7']);
+                _gaq.push(['_setDomainName', 'reverbim.com']);
+                _gaq.push(['_setAllowLinker', true]);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+                _gaq.push(['_trackEvent', 'WidgetLoad', '7ea6a238, ' ]);
+
+                window.onerror = function(message, file, line) {
+                    var sFormattedMessage = '[' + file + ' (' + line + ')] ' + message;
+                    _gaq.push(['_trackEvent', 'jsErrors', 'Homepage', sFormattedMessage, null, true]);
+                }
+
+             </script>
+
+         </head>
+    <body>
+        
+
+        <div class="status-bar">
+            <span class="status-online-users">Online users: 5</span>
+            <!--[if !IE]>--><span class="menu-button">★</span><!--<![endif]-->
+            <!--[if IE]><span class="menu-button">&#35;</span><![endif]-->
+        </div>
+        <div class="user-list" style="display:none;"></div>
+        <div class="menu">
+            <ul>
+                
+                <li class="menu-enable-notifications" alt="Chrome only">Enable notifications</li>
+                <li><a href="http://reverbim.com/" target="_blank">About Reverb IM</a>.<div class="menu-arrow-border"></div></li>
+            </ul>
+            <div class="menu-arrow"></div>
+        </div>
+        <div style="height: 198px; position: relative; overflow: hidden;" class="conversation hover"><div id="conversation" style="top: -5914px; left: 0px; position: absolute; overflow: visible; height: auto;" class="scrollbar-pane">
+            <div class="received-message" id="empty-message" style="display:none;">
+                <div class="received-sender"></div>
+                <div class="received-message-time"></div>
+                <div class="received-message-text"></div>
+            </div>
+            
+        <div class="received-message" style="">
+                <div class="received-sender">Frostbites</div>
+                <div class="received-message-time">13:04</div>
+                <div class="received-message-text">Early indications show that our operation was a success. Our thieves have caused rioting. It is expected to last 17 days.</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Frostbites</div>
+                <div class="received-message-time">13:04</div>
+                <div class="received-message-text">Planet 10</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:04</div>
+                <div class="received-message-text">lol nice</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Frostbites</div>
+                <div class="received-message-time">13:04</div>
+                <div class="received-message-text">hehe</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:04</div>
+                <div class="received-message-text">k ice, later use your mana</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Frostbites</div>
+                <div class="received-message-time">13:04</div>
+                <div class="received-message-text">gtg be back in 2 ticks time</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:04</div>
+                <div class="received-message-text">fb the merch</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:04</div>
+                <div class="received-message-text">kk</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:05</div>
+                <div class="received-message-text">drake is so cheap</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:05</div>
+                <div class="received-message-text">so used to see drake cost like 13mil</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:05</div>
+                <div class="received-message-text">=.=</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">CirrusMinor</div>
+                <div class="received-message-time">13:05</div>
+                <div class="received-message-text">lol.</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:07</div>
+                <div class="received-message-text">back</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:07</div>
+                <div class="received-message-text">yo war</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:07</div>
+                <div class="received-message-text">pshhhh</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:07</div>
+                <div class="received-message-text">use your thieves and steal from kitar</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:08</div>
+                <div class="received-message-text">i got hit</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:08</div>
+                <div class="received-message-text">so gay</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:08</div>
+                <div class="received-message-text">or joom</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:08</div>
+                <div class="received-message-text">their tpa is quite pathetic</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:08</div>
+                <div class="received-message-text">even orcs can teal</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:08</div>
+                <div class="received-message-text">steal</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:08</div>
+                <div class="received-message-text">Early indications show that our operation was a success. Our thieves have returned with 16,218 gold coins.</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:08</div>
+                <div class="received-message-text">oh low in gold d</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:09</div>
+                <div class="received-message-text">can ignore lol</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:09</div>
+                <div class="received-message-text">just robbed about 200k off Joom</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:10</div>
+                <div class="received-message-text">o.o</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:10</div>
+                <div class="received-message-text">want me to build dragon?</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:10</div>
+                <div class="received-message-text">119,999 gold coins are still needed to complete development.</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:10</div>
+                <div class="received-message-text">yea fly it</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:10</div>
+                <div class="received-message-text">done</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:10</div>
+                <div class="received-message-text">nais</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:10</div>
+                <div class="received-message-text">:D</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:10</div>
+                <div class="received-message-text"> The Gold Dragon Project for Money (1:2) has begun. The total cost will be 6,225,601 gold coins. </div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:11</div>
+                <div class="received-message-text">someone som their king and steward</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:11</div>
+                <div class="received-message-text">I can hit cordelia once</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:11</div>
+                <div class="received-message-text">if u hit, what is your extra O?</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Oops of Core</div>
+                <div class="received-message-time">13:11</div>
+                <div class="received-message-text">som king done</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Oops of Core</div>
+                <div class="received-message-time">13:11</div>
+                <div class="received-message-text">40.2k mod def</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:11</div>
+                <div class="received-message-text">very little, maybe 10k</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:11</div>
+                <div class="received-message-text">if that</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Oops of Core</div>
+                <div class="received-message-time">13:11</div>
+                <div class="received-message-text">ste I mean</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Oops of Core</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">king 64.7k mod def</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">oops of core</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">have u joined umunk?</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Oops of Core</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">not yet</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">lemme knwo your desired username</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">so that whenever u do sot/som</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">it's updated automatically</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">quite a neat intel tool</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Oops of Core</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">user give me corerk</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">kk</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">Zank</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:12</div>
+                <div class="received-message-text">done</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:13</div>
+                <div class="received-message-text">want me to hit cord?</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:13</div>
+                <div class="received-message-text">go and follow instruction in forum</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:13</div>
+                <div class="received-message-text">war</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:13</div>
+                <div class="received-message-text">yes</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:13</div>
+                <div class="received-message-text">hit</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:13</div>
+                <div class="received-message-text">kk</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:13</div>
+                <div class="received-message-text">extra O go hit those nub inactive lol</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:14</div>
+                <div class="received-message-text">anon or no?</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:14</div>
+                <div class="received-message-text">nope</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:14</div>
+                <div class="received-message-text">quo if u can hit first</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:14</div>
+                <div class="received-message-text">tht'd be great</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:14</div>
+                <div class="received-message-text">Your forces arrive at
+ Cordelia (1:2). A tough battle took place, but we have managed a 
+victory! Your army has taken 114 acres! 74 acres of buildings survived 
+and can be refitted to fit our needs. We also gained 285 specialist 
+training credits. Taking full control of your new land will take 11.83 
+days, and will be available on May 1 of YR13.
+We lost 300 Ogres and 300 horses in this battle.
+We killed about 530 enemy troops. We also imprisoned 220 additional 
+troops in our Dungeons.
+Our forces will be available again in 11.83 days (on May 1 of YR13).</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:14</div>
+                <div class="received-message-text">sorry, too late</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:14</div>
+                <div class="received-message-text">oh nvm bruh</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:14</div>
+                <div class="received-message-text">nice grab</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:15</div>
+                <div class="received-message-text">&lt;3 emmy</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:15</div>
+                <div class="received-message-text">I have 12.3k leftover offense</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:15</div>
+                <div class="received-message-text">and 1 gen</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:15</div>
+                <div class="received-message-text">chekc if u can break yomi</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:15</div>
+                <div class="received-message-text">else just hit returnto</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:15</div>
+                <div class="received-message-text">i show Yomi has 21k def atm</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:15</div>
+                <div class="received-message-text">too high</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:16</div>
+                <div class="received-message-text">k just hit return to</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">CirrusMinor</div>
+                <div class="received-message-time">13:16</div>
+                <div class="received-message-text">I hit uto w/ 5K</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:16</div>
+                <div class="received-message-text">trad?</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:16</div>
+                <div class="received-message-text">plunder if u can</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:16</div>
+                <div class="received-message-text">still got 300k+ gold</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:16</div>
+                <div class="received-message-text">k will plunder</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:16</div>
+                <div class="received-message-text">want funds to drake or should I pump prov?</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:16</div>
+                <div class="received-message-text">pump prob</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:16</div>
+                <div class="received-message-text">prov first</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:17</div>
+                <div class="received-message-text">lets see what they're gonna do with emerald drake</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:17</div>
+                <div class="received-message-text">Your forces arrive at
+ ReturntoUto (1:2). Your generals report a tough but resounding victory 
+on the battlefields! Your army looted 65,407 gold coins, 21,031 bushels 
+and 1,731 runes!
+We lost 33 Ogres and 33 horses in this battle.
+We killed about 106 enemy troops.
+Our forces will be available again in 10.35 days (on April 23 of YR13).
+Our troops have brought back the plague from the people of ReturntoUto 
+(1:2)!</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:17</div>
+                <div class="received-message-text">not much on gains :(</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:17</div>
+                <div class="received-message-text">not bad</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:17</div>
+                <div class="received-message-text">65k/300k</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:17</div>
+                <div class="received-message-text">yea not terrible</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:17</div>
+                <div class="received-message-text">about 20% of his stuff looted</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:17</div>
+                <div class="received-message-text">especially considering size diff</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:17</div>
+                <div class="received-message-text">yep yep</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:17</div>
+                <div class="received-message-text">kk</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:17</div>
+                <div class="received-message-text">lets wrap up this season with a good war</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:18</div>
+                <div class="received-message-text">yeap</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Legacy of War</div>
+                <div class="received-message-time">13:18</div>
+                <div class="received-message-text">even if it doesnt end, lets stomp a mudhole in their ass</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:18</div>
+                <div class="received-message-text">mages, pls FB One Toast</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:18</div>
+                <div class="received-message-text">PRETTY PLS</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:18</div>
+                <div class="received-message-text">oops if u can FB one toast, tht'd be great</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Oops of Core</div>
+                <div class="received-message-time">13:19</div>
+                <div class="received-message-text">can't break, his wpa too good</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:19</div>
+                <div class="received-message-text">kitar is online</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Oops of Core</div>
+                <div class="received-message-time">13:19</div>
+                <div class="received-message-text">Your wizards gather 
+2,662 runes and begin casting, and the spell succeeds. A fireball burns 
+through the skies of ONE Toast Sandwhich (1:2). 1,712 peasants are 
+killed in the destruction!</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:19</div>
+                <div class="received-message-text">nais</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Oops of Core</div>
+                <div class="received-message-time">13:19</div>
+                <div class="received-message-text">Your wizards gather 
+2,662 runes and begin casting, and the spell succeeds. A fireball burns 
+through the skies of ONE Toast Sandwhich (1:2). 1,833 peasants are 
+killed in the destruction!</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Oops of Core</div>
+                <div class="received-message-time">13:19</div>
+                <div class="received-message-text">Your wizards gather 
+2,662 runes and begin casting, and the spell succeeds. A fireball burns 
+through the skies of ONE Toast Sandwhich (1:2). 1,623 peasants are 
+killed in the destruction!</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">fazzy</div>
+                <div class="received-message-time">13:19</div>
+                <div class="received-message-text">pretty much if this isnt decent war, we cant get the win nor we shouldnt give the ww</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:19</div>
+                <div class="received-message-text">?</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">fazzy</div>
+                <div class="received-message-time">13:20</div>
+                <div class="received-message-text">eoa dilemma</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:20</div>
+                <div class="received-message-text">lol</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:20</div>
+                <div class="received-message-text">as usual</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:22</div>
+                <div class="received-message-text">nice job on cordelia</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:22</div>
+                <div class="received-message-text">k lets do a NM wave onto Planet 10</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:22</div>
+                <div class="received-message-text">on May 1st</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:22</div>
+                <div class="received-message-text">bring tht bugger halfler sage down</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">fazzy</div>
+                <div class="received-message-time">13:22</div>
+                <div class="received-message-text">copy that</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:26</div>
+                <div class="received-message-text">cordelia's armies are still in</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:26</div>
+                <div class="received-message-text">with 18k pez</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:26</div>
+                <div class="received-message-text">and overpop</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">fazzy</div>
+                <div class="received-message-time">13:26</div>
+                <div class="received-message-text">NS those extra stealth</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:26</div>
+                <div class="received-message-text">and plagued</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">fazzy</div>
+                <div class="received-message-time">13:27</div>
+                <div class="received-message-text">cordelia's buttfck now</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:27</div>
+                <div class="received-message-text">yup2</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">fazzy</div>
+                <div class="received-message-time">13:27</div>
+                <div class="received-message-text">my NSes fails lol</div>
+            </div><div class="received-message" style="">
+                <div class="received-sender">Rough Divide</div>
+                <div class="received-message-time">13:27</div>
+                <div class="received-message-text">lol</div>
+            </div></div><div style="right: 0px; position: absolute; height: 198px;" class="scrollbar-handle-container hover"><div style="top: 168px; right: 0px; position: absolute; cursor: pointer; height: 30px;" class="scrollbar-handle"></div></div></div>
+        <div class="compose">
+            <div class="ajax-error" style="display: none;"></div>
+            <div class="disconnect-box" style="display: none;">
+                <div class="disconnect-message"></div>
+                <div class="reconnect-message"><div class="reconnect-link">Reconnect now.</div></div>
+            </div>
+            <div style="border-width: 2px;" class="text-entry-outer">
+                <textarea class="text-entry">NS those u</textarea>
+            </div>
+        </div>
+        <div class="change-name" style="display: none;">
+            <div class="name-label">Username:</div>
+            <textarea class="display-name"></textarea>
+            <div class="display-name-error" style="display: none;"></div>
+        </div>
+        <div class="branding-footer"><a href="http://reverbim.com/" target="_blank">Powered by Reverb IM</a></div>
+
+    
+
+</body></html>
