@@ -26,13 +26,5 @@
         <a href="{{ $url }}{{ .url }}">{{ .name }}</a>
       {{ end }}
     </div>
-    <div class="text-center">
-      <h4 class="categories">Categories</h4>
-    </div>
-    <div id="links" class="text-center">
-      {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-        <p><a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></p>
-      {{ end }}
-    </div>
   </div>
 </div>
