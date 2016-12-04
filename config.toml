@@ -28,7 +28,7 @@ disqusShortname = "unconventionalco"
     profilepic = "images/displayPic.jpg"
 
     # Title/subtitle for the sidebar
-    subtitle = "Investment | Entrepreneurship | Business"
+    subtitle = "Investment | Business | Wisdom"
 
     # Nav links below the profile picture
     [[params.navlinks]]
