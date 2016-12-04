@@ -1,6 +1,6 @@
 +++
 title = "Bryan's Bookshelf"
-date = "2013-05-23 22:20"
+date = "2013-05-23T00:00:00Z"
 +++
 
 

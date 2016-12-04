@@ -1,4 +1,4 @@
-baseurl = "http://replace-this-with-your-hugo-site.com/"
+baseurl = "https://www.unconventional.co"
 title = "Think Different"
 languageCode = "en-us"
 paginate = 5

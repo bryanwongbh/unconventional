@@ -1,6 +1,6 @@
 +++
 title = "About"
-date = "2013-05-21 23:18"
+date = "2013-05-21T00:00:00Z"
 +++
 
 ## The Author
