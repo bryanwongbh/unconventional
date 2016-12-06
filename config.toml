@@ -1,44 +1,55 @@
+# Site settings
 baseurl = "https://www.unconventional.co"
-title = "Think Different"
 languageCode = "en-us"
-paginate = 5
+title = "Think Different"
+theme = "hugo-cactus-theme"
+# Enter your tracking code to enable Google Analytics
+googleAnalytics = ""
+# Disable comments by leaving disqusShortname empty
 disqusShortname = "unconventionalco"
 
-[taxonomies]
-    tag = "tags"
-    category = "categories"
-
 [params]
-    # Render the rotating globe in the sidebar
-    showglobe = true
+  name = "Bryan Wong"
+  description = "Everyone is born a genius; it is the art of perception that molds us to be who we are"
+  bio = "Investment | Business | Wisdom"
+  # Enter optionally your twitter account
+  twitter = "bryanwongbh"
+  enableRSS = true
 
-    analytics = "SHORT-CODE-HERE"
+  # Add custom assets with their paths relative to the static folder
+  customCSS = []
+  customJS  = []
 
-    # Social buttons for sidebar
-    github = "https://github.com/bryanwongbh"
-    twitter = "https://twitter.com/bryanwongbh"
-    linkedin = "https://my.linkedin.com/in/bryanwongbh"
-    website = "https://www.bryanwongbh.com"
-    email = "bryanwongbh@gmail.com"
+  # The variables below are optionally too and can be used to
+  # translate or customize each string of the theme.
 
-    # Header Title for the main page
-    header = "Everyone is born a genius; it is the art of perception that molds us to be who we are"
+  # Navigation links
+  home = ""
+  about = ""
+  books = ""
+  subscribe = ""
+  # Pagination links
+  olderPosts = "Previous Post"
+  newerPosts = "Next Post"
+  readMore = ""
+  copyright = ""
+  # Sharing options and author information in posts
+  aboutAuthor = "I enjoy finance, business, and stoicism."
+  tweet = ""
+  share = ""
+  # 404 page
+  title404 = ""
+  subtitle404 = ""
 
-    # Sidebar profile picture
-    profilepic = "images/displayPic.jpg"
+  # Choose a font for the social icons in the footer. Either "mono-social" or "font-awesome"
+  iconFont = "mono-social"
+    # The social icons can be styled differently if you use mono as font - circle, rounded, or empty
+    socialIconStyle = "circle"
 
-    # Title/subtitle for the sidebar
-    subtitle = "Investment | Business | Wisdom"
-
-    # Nav links below the profile picture
-    [[params.navlinks]]
-    name = "About"
-    url = "about/"
-
-    [[params.navlinks]]
-    name = "Blog"
-    url = "post/"
-
-    [[params.navlinks]]
-    name = "Books"
-    url = "books/"
+# Add additional social link entries underneath
+[social]
+    twitter  = "https://www.twitter.com/bryanwongbh"
+    githubalt   = "https://www.github.com/bryanwongbh"
+    stackoverflow = "https://stackoverflow.com/users/2605609/bryan-wong"
+    linkedin = "https://www.linkedin.com/in/bryanwongbh"
+    email = "mailto:bryanwongbh@gmail.com"

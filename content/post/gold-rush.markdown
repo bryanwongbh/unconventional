@@ -46,21 +46,19 @@ Among the main applications of gold are:
 
 Based on [World Gold Council's](http://www.gold.org/) data for gold demand for the year 2012, below are some interesting figures:
 
-- 43.5% accounts for jewellery
-- 35.0% accounts for investment
-- 12.2% accounts for official sector purchases
-- 9.3% accounts for technology
+- 45.5% accounts for jewellery
+- 34.3% accounts for investment
+- 8.1% accounts for technology
+- 12.2% accounts for central bank and other institution
 
-
-![Gold Demand Table](http://www.gold.org/assets/images/content/investment/Demand_and_supply_sm.gif "Gold Demand Table")
-
+(Refer to this [link](http://www.gold.org/supply-and-demand/interactive-gold-market-charting) for more info)
 
 From the math above, one can ask a simple question, "Looking at the two largest chunks, jewellery and investment, does both of them really help to stimulate the economy and provide sustainable investment?" 
 
 As Charlie Munger shared, "Remember that highest and best use is always measured by the next best use", thus, would be fair to compare with other investment vehicle. Lets take property investment, population has always been on the increasing trend (refer to chart below from World Bank).
 
 
-<div style="width:300px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; line-height:20px"><div style="background-color:#333; padding:0px 5px; font-weight:bold"><div style="color:#fff; font-size:12px; line-height:20px;"><a href="http://data.worldbank.org/indicator/SP.POP.TOTL/countries?display=graph" style="color:#fff;text-decoration:none;" class="active">Population, total</a></div></div><script type="text/javascript">widgetContext = { "url": "http://data.worldbank.org/widgets/indicator/0/web_widgets_3/SP.POP.TOTL/countries/1W", "width": 300, "height": 225, "widgetid": "web_widget_iframe_d306daa6ae15b05a7869db5bd095a11a" };</script><div id="web_widget_iframe_d306daa6ae15b05a7869db5bd095a11a"></div><script src="http://data.worldbank.org/profiles/datafinder/modules/contrib/web_widgets/iframe/web_widgets_iframe.js"></script><div style="font-size: 10px; color:#000">Data from <a href="http://data.worldbank.org/indicator/SP.POP.TOTL/countries?display=graph" style="color:#CCC;">World Bank</a></div></div>
+<iframe src="http://data.worldbank.org/share/widget?end=2015&indicators=SP.POP.TOTL&start=1960&view=chart" width='500' height='333' frameBorder='0' scrolling="no"></iframe>
 
 
 Thus, it makes sense to invest in property be it for rental income or capital gain (lets hope there would not be another subprime mortgage crisis in the making). 

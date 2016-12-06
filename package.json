@@ -2,7 +2,7 @@
   "_aerobatic": {
     "build": {
       "engine": "hugo",
-      "themeRepo": "https://github.com/alexurquhart/hugo-geo.git"
+      "themeRepo": "https://github.com/digitalcraftsman/hugo-cactus-theme.git"
     }
   }
 }
