@@ -1,6 +1,6 @@
 +++
 title = "Savings Account in Malaysia"
-description = "The general types of savings account available in Malaysia for Malaysians"
+description = "General savings accounts available in Malaysia for Malaysians"
 date = "2017-01-22T21:17:48+08:00"
 categories = ["finance"]
 tags = ["savings", "finance"] 
