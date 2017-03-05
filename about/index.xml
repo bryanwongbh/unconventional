@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About-rsses on Think Different</title>
+    <link>http://bryanwongbh.github.io/unconventional/about/index.xml</link>
+    <description>Recent content in About-rsses on Think Different</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 May 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://bryanwongbh.github.io/unconventional/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About</title>
+      <link>http://bryanwongbh.github.io/unconventional/about/</link>
+      <pubDate>Tue, 21 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://bryanwongbh.github.io/unconventional/about/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-author&#34;&gt;The Author&lt;/h2&gt;
+
+&lt;script src=&#34;//about.me/embed/bryanwongbh?style=site&#34;&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

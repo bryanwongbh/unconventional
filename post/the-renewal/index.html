@@ -1,0 +1,496 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Bryan Wong">
+		<meta name="description" content="Everyone is born a genius; it is the art of perception that molds us to be who we are">
+		<meta name="generator" content="Hugo 0.17" />
+		<title>The Renewal &middot; Think Different</title>
+		<link rel="shortcut icon" href="http://bryanwongbh.github.io/unconventional/images/favicon.ico">
+		<link rel="stylesheet" href="http://bryanwongbh.github.io/unconventional/css/style.css">
+		<link rel="stylesheet" href="http://bryanwongbh.github.io/unconventional/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="http://bryanwongbh.github.io/unconventional/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="http://bryanwongbh.github.io/unconventional/index.xml" rel="alternate" type="application/rss+xml" title="Think Different" />
+		
+
+		<meta property="og:title" content="The Renewal" />
+<meta property="og:description" content="Introduction
+
+This post summarises on the setup of Octopress on Openshift which utilizes Greyshade theme as per Unconventional.co.
+
+As I have mentioned in my previous post, Unconventional.co is alive and kicking! Previously, it is hosted on Heroku and powered by Obtvse. After Heroku added a 10k rows of DB limit for its Development box, I thought it was time to explore on another Platform-as-a-Service (PaaS) and hopefully, I do not need to change to another service.
+Not to mention, I still got a lot to learn in terms of configuring a database (be it mysql or postgresql) to match it with a particular PaaS&rsquo; offering (believe me, it is a pain in the a$$). Thus, having a blog that requires database configuration for a particular PaaS and maintenance is a hassle and I would much prefer to spend time to pen down ideas than to try to configure a database that works on one PaaS but does not work on another.
+
+I have been working on Openshift for a fair bit and its pricing for its FreeShift is definitely attractive to most PaaS seekers out there (myself included). On the other hand, enlightenment dawns upon myself when I stumbled upon Octopress. Without the need to manage database for blogging and also utilizing the hacker way of publishing via git push to push updates to the server.
+
+There are three parts:
+
+
+Setup an Openshift Account
+
+Setup Octopress and Link to Openshift
+
+Install Greyshade Theme
+
+
+I would like to credit the deployment of Octopress to Openshift write-up to Shellcode and the Greyshade theme design to Shashank Mehta.
+
+And so, it begins&hellip;
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://bryanwongbh.github.io/unconventional/post/the-renewal/" />
+
+
+<meta property="og:updated_time" content="2013-05-21T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="The Renewal">
+<meta itemprop="description" content="Introduction
+
+This post summarises on the setup of Octopress on Openshift which utilizes Greyshade theme as per Unconventional.co.
+
+As I have mentioned in my previous post, Unconventional.co is alive and kicking! Previously, it is hosted on Heroku and powered by Obtvse. After Heroku added a 10k rows of DB limit for its Development box, I thought it was time to explore on another Platform-as-a-Service (PaaS) and hopefully, I do not need to change to another service.
+Not to mention, I still got a lot to learn in terms of configuring a database (be it mysql or postgresql) to match it with a particular PaaS&rsquo; offering (believe me, it is a pain in the a$$). Thus, having a blog that requires database configuration for a particular PaaS and maintenance is a hassle and I would much prefer to spend time to pen down ideas than to try to configure a database that works on one PaaS but does not work on another.
+
+I have been working on Openshift for a fair bit and its pricing for its FreeShift is definitely attractive to most PaaS seekers out there (myself included). On the other hand, enlightenment dawns upon myself when I stumbled upon Octopress. Without the need to manage database for blogging and also utilizing the hacker way of publishing via git push to push updates to the server.
+
+There are three parts:
+
+
+Setup an Openshift Account
+
+Setup Octopress and Link to Openshift
+
+Install Greyshade Theme
+
+
+I would like to credit the deployment of Octopress to Openshift write-up to Shellcode and the Greyshade theme design to Shashank Mehta.
+
+And so, it begins&hellip;
+
+">
+
+
+<meta itemprop="dateModified" content="2013-05-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="978">
+
+
+
+<meta itemprop="keywords" content="finance,personal,web-development,book,development,dream,finance,fundamental,gold,investing,learning,openshift,savings,technology,thoughts," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="The Renewal"/>
+<meta name="twitter:description" content="Introduction
+
+This post summarises on the setup of Octopress on Openshift which utilizes Greyshade theme as per Unconventional.co.
+
+As I have mentioned in my previous post, Unconventional.co is alive and kicking! Previously, it is hosted on Heroku and powered by Obtvse. After Heroku added a 10k rows of DB limit for its Development box, I thought it was time to explore on another Platform-as-a-Service (PaaS) and hopefully, I do not need to change to another service.
+Not to mention, I still got a lot to learn in terms of configuring a database (be it mysql or postgresql) to match it with a particular PaaS&rsquo; offering (believe me, it is a pain in the a$$). Thus, having a blog that requires database configuration for a particular PaaS and maintenance is a hassle and I would much prefer to spend time to pen down ideas than to try to configure a database that works on one PaaS but does not work on another.
+
+I have been working on Openshift for a fair bit and its pricing for its FreeShift is definitely attractive to most PaaS seekers out there (myself included). On the other hand, enlightenment dawns upon myself when I stumbled upon Octopress. Without the need to manage database for blogging and also utilizing the hacker way of publishing via git push to push updates to the server.
+
+There are three parts:
+
+
+Setup an Openshift Account
+
+Setup Octopress and Link to Openshift
+
+Install Greyshade Theme
+
+
+I would like to credit the deployment of Octopress to Openshift write-up to Shellcode and the Greyshade theme design to Shashank Mehta.
+
+And so, it begins&hellip;
+
+"/>
+<meta name="twitter:site" content="@https://www.twitter.com/bryanwongbh"/>
+
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+  
+  
+    <a href='http://bryanwongbh.github.io/unconventional/'> <span class="arrow">←</span>Home</a>
+  
+
+  
+    <a href='http://bryanwongbh.github.io/unconventional/about'>About</a>
+  
+
+  
+    <a href='http://bryanwongbh.github.io/unconventional/books'>Books</a>
+  
+
+  
+  <a class="cta" href="http://bryanwongbh.github.io/unconventional/index.xml">Subscribe</a>
+  
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>The Renewal</h1>
+                    <h2 class="headline">
+                    May 21, 2013 
+                    <br>
+                    
+                    
+                        
+                            <a href="http://bryanwongbh.github.io/unconventional/tags/openshift">openshift</a>
+                        
+                            <a href="http://bryanwongbh.github.io/unconventional/tags/technology">technology</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <h2 id="introduction">Introduction</h2>
+
+<p>This post summarises on the setup of Octopress on Openshift which utilizes Greyshade theme as per Unconventional.co.</p>
+
+<p>As I have mentioned in my previous <a href="http://www.unconventional.co/blog/2013/05/21/back-from-the-ashes/">post</a>, Unconventional.co is alive and kicking! Previously, it is hosted on <a href="https://www.heroku.com/">Heroku</a> and powered by <a href="https://github.com/natew/obtvse">Obtvse</a>. After Heroku added a 10k rows of DB limit for its Development box, I thought it was time to explore on another Platform-as-a-Service (PaaS) and hopefully, I do not need to change to another service.
+Not to mention, I still got a lot to learn in terms of configuring a database (be it mysql or postgresql) to match it with a particular PaaS&rsquo; offering (believe me, it is a pain in the a$$). Thus, having a blog that requires database configuration for a particular PaaS and maintenance is a hassle and I would much prefer to spend time to pen down ideas than to try to configure a database that works on one PaaS but does not work on another.</p>
+
+<p>I have been working on <a href="https://www.openshift.com/‎">Openshift</a> for a fair bit and its <a href="https://www.openshift.com/developers/pricing">pricing</a> for its FreeShift is definitely attractive to most PaaS seekers out there (myself included). On the other hand, enlightenment dawns upon myself when I stumbled upon <a href="http://octopress.org/">Octopress</a>. Without the need to manage database for blogging and also utilizing the hacker way of publishing via <code>git push</code> to push updates to the server.</p>
+
+<p>There are three parts:</p>
+
+<ul>
+<li><p>Setup an Openshift Account</p></li>
+
+<li><p>Setup Octopress and Link to Openshift</p></li>
+
+<li><p>Install Greyshade Theme</p></li>
+</ul>
+
+<p>I would like to credit the deployment of Octopress to Openshift write-up to <a href="http://www.shellco.de/">Shellcode</a> and the <a href="http://shashankmehta.in/archive/2012/greyshade.html">Greyshade</a> theme design to Shashank Mehta.</p>
+
+<p>And so, it begins&hellip;</p>
+
+<p></p>
+
+<h2 id="setup-an-openshift-account">Setup an Openshift Account</h2>
+
+<p>On this part, it is mainly about getting your own Openshift account and perform the necessary settings to accommodate Octopress deployment (for further details, please refer to <a href="http://www.shellco.de/deploying-octopress-on-openshift/">this</a>).</p>
+
+<p>The necessary steps are:</p>
+
+<ol>
+<li><p>Click on Add Application in the dashboard of your Openshift account</p></li>
+
+<li><p>Select and install Ruby 1.9 application</p></li>
+
+<li><p>Copy the generated git repository URL (As an <strong>example</strong> <code>ssh://abc1234@blablabla-foobar.rhcloud.com/~/git/foobar.git/</code>)</p></li>
+</ol>
+
+<h2 id="setup-octopress-and-link-to-openshift">Setup Octopress and Link to Openshift</h2>
+
+<p>Next, this will mainly describe on the necessary settings to setup Octopress in your local machine and subsequently push it to Openshift.</p>
+
+<p>Below are the next steps:</p>
+
+<ol>
+<li><p>In your terminal, enter <code>git clone git://github.com/imathis/octopress.git octopress</code> at wherever you want to have Octopress in your local machine</p></li>
+
+<li><p>Enter into the Octopress directory</p></li>
+
+<li><p>In your terminal, enter <code>bundle install</code> to compile the Gemfile</p></li>
+
+<li><p>Next, type <code>bundle exec rake install</code> to complete Octopress setup</p></li>
+</ol>
+
+<p>Then, the local Octopress and Openshift has to be linked together in order to make the deployment to the PaaS a success (that is why the generated git repo URL is copied earlier on!). I have been following Shellcode&rsquo;s methodology in having a staging public directory. I think this methodology of having a staging public directory and utilizing only the necessary files to commit is disk-space relieving for most PaaS and I like it. Anyway, moving on:</p>
+
+<ol>
+<li><p>Copy the Gemfile and config.ru file generated from the Octopress setup</p></li>
+
+<li><p>Exit Octopress folder by going one level up or just enter <code>cd..</code> in your terminal</p></li>
+
+<li><p>Create a <em>_deployment</em> folder and enter into it</p></li>
+
+<li><p>Paste the copied Gemfile and config.ru file into the <em>_deployment</em> folder</p></li>
+
+<li><p>Type <code>bundle install</code> to generate a Gemfile.lock</p></li>
+
+<li><p>Create a <em>public</em> folder in it</p></li>
+
+<li><p>Type <code>git init</code> to initialize the repository</p></li>
+
+<li><p>Type <code>git remote add openshift ssh://abc1234@blablabla-foobar.rhcloud.com/~/git/foobar.git/</code></p></li>
+
+<li><p>Type <code>git add .</code></p></li>
+
+<li><p>Type <code>git commit -m &quot;Initial commit&quot;</code></p></li>
+
+<li><p>Exit <em>_deployment</em> folder by going one level up</p></li>
+
+<li><p>Copy <em>_deployment folder</em> and enter Octopress folder</p></li>
+
+<li><p>Paste <em>_deployment folder</em> within Octopress folder</p></li>
+
+<li><p>Type <code>git add _deployment/</code></p></li>
+
+<li><p>Type <code>bundle exec rake new_post['Hello World']</code></p></li>
+
+<li><p>Edit the newly generated markdown file however you want and save it</p></li>
+
+<li><p>Type <code>bundle exec rake generate</code> and this will generate some files within your public folder (<em>octopress/public</em>)</p></li>
+
+<li><p>Enter into the directory <em>octopress/_deployment/public</em> and delete everything inside there</p></li>
+
+<li><p>Copy all the files generated from <em>octopress/public</em> to <em>octopress/_deployment/public</em></p></li>
+
+<li><p>Enter to the folder <em>octopress/_deployment</em> in your terminal</p></li>
+
+<li><p>Type <code>git add .</code> to add all the new files to be pushed to the Openshift repo</p></li>
+
+<li><p>Type <code>git commit -m &quot;New blog post&quot;</code></p></li>
+
+<li><p>Type <code>git push openshift master</code></p></li>
+</ol>
+
+<p>Then you will see Openshift spewing some stuff out in your terminal to show the background jobs running and once you see <code>remote: Done</code>, you can visit the URL of your blog in Openshift check how awesome it is to have it hosted there!</p>
+
+<h2 id="setup-greyshade-theme">Setup Greyshade Theme</h2>
+
+<p>Finally, this is regarding the installation of Greyshade theme to Octopress. The few main reasons why utilize Greyshade theme are:</p>
+
+<ul>
+<li><p>Responsiveness design (try use a mobile phone or tablet to view it, everything scales nicely)</p></li>
+
+<li><p>Simple and clean user interface</p></li>
+
+<li><p>Nicely designed favicon included for social media</p></li>
+</ul>
+
+<p>The instructions for this portion is adopted from <a href="https://github.com/shashankmehta/greyshade">here</a>. So the steps in this part are:</p>
+
+<ol>
+<li><p>Enter into the octopress folder in your local machine via your terminal</p></li>
+
+<li><p>Type <code>git clone git@github.com:shashankmehta/greyshade.git .themes/greyshade</code></p></li>
+
+<li><p>Go to this <a href="http://hslpicker.com/">website</a> and pick a colour theme that you have not seen in <a href="https://github.com/shashankmehta/greyshade/wiki/Sites-using-Greyshade">here</a></p></li>
+
+<li><p>In your terminal, type <code>echo &quot;\$greyshade: *colour*;&quot; &gt;&gt; sass/custom/_colors.scss //Substitue 'color' with your highlight color</code>; substitute <em>colour</em> with your chosen colour theme</p></li>
+
+<li><p>Type <code>bundle exec rake &quot;install[greyshade]&quot;</code></p></li>
+
+<li><p>Delete everything that is within <em>octopress/public</em> and <em>octopress/public/_deployment</em></p></li>
+
+<li><p>Type <code>bundle exec rake generate</code> and copy the generated files in <em>octopress/public</em> to <em>octopress/public/_deployment</em></p></li>
+
+<li><p>Add your updated files for pushing to Openshift repo by typing <code>git add .</code></p></li>
+
+<li><p>Type <code>git commit -m &quot;Updated theme for Octopress&quot;</code></p></li>
+
+<li><p>Push your update to Openshift repo by typing <code>git push openshift master</code></p></li>
+
+<li><p>Go to the URL of your Openshift application and marvel upon the Greyshade themed Octopress, hosted by Openshift</p></li>
+</ol>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Thus, with this <em>unconventional</em> way of blog setup (rather than using readily-made available services such as Tumblr, hosted Wordpress or Blogger), learning via technology and blogging would definitely be fun! Cheers for your attention!</p>
+
+<p>P.S. If you see any mistakes or just want to say hi, just drop a note below!</p>
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/bryanwongbh">
+                        <img class="avatar" src="http://bryanwongbh.github.io/unconventional/images/avatar.png">
+                        <div>
+                            <span class="dark">Bryan Wong</span>
+                            <span>I enjoy finance, business, and stoicism.</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fbryanwongbh.github.io%2funconventional%2fpost%2fthe-renewal%2f - The%20Renewal by @bryanwongbh"><span class="icon-twitter"> Tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+                </section>
+            </footer>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'unconventionalco';
+    var disqus_identifier = 'http:\/\/bryanwongbh.github.io\/unconventional\/post\/the-renewal\/';
+    var disqus_title = 'The Renewal';
+    var disqus_url = 'http:\/\/bryanwongbh.github.io\/unconventional\/post\/the-renewal\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+            <ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+    
+    
+        
+        <li>
+            <a href="http://bryanwongbh.github.io/unconventional/post/discomfort-zone/">Discomfort Zone<aside class="dates">January 22, 2017</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="http://bryanwongbh.github.io/unconventional/post/savings-account-malaysia/">Savings Account in Malaysia<aside class="dates">January 22, 2017</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="http://bryanwongbh.github.io/unconventional/post/hello-hugo/">Hello Hugo<aside class="dates">December 7, 2016</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="http://bryanwongbh.github.io/unconventional/post/the-art-of-learning/">The Art of Learning<aside class="dates">June 1, 2014</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="http://bryanwongbh.github.io/unconventional/post/dreams-and-reality/">Dreams and Reality<aside class="dates">October 30, 2013</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="http://bryanwongbh.github.io/unconventional/post/gold-rush/">Gold Rush<aside class="dates">June 17, 2013</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="http://bryanwongbh.github.io/unconventional/post/wants-and-could-nots/">Of Wants and Could Nots<aside class="dates">May 27, 2013</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="http://bryanwongbh.github.io/unconventional/post/principles-of-value-investing/">Principles of Value Investing<aside class="dates">May 22, 2013</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="http://bryanwongbh.github.io/unconventional/post/back-from-the-ashes/">Back From the Ashes<aside class="dates">May 21, 2013</aside></a>
+        </li>
+        
+   
+</ul>
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="mailto:bryanwongbh@gmail.com">
+        circleemail
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/bryanwongbh">
+        circlegithubalt
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/bryanwongbh">
+        circlelinkedin
+    </a>
+    
+    <a class="symbol" href="https://stackoverflow.com/users/2605609/bryan-wong">
+        circlestackoverflow
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/bryanwongbh">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        © Copyright 2017 Bryan Wong
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://bryanwongbh.github.io/unconventional/js/main.js"></script>
+<script src="http://bryanwongbh.github.io/unconventional/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-41070069-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+    </body>
+</html>

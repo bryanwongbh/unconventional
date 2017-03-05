@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Think Different</title>
+    <link>http://bryanwongbh.github.io/unconventional/categories/web-development/index.xml</link>
+    <description>Recent content on Think Different</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://bryanwongbh.github.io/unconventional/categories/web-development/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hello Hugo</title>
+      <link>http://bryanwongbh.github.io/unconventional/post/hello-hugo/</link>
+      <pubDate>Wed, 07 Dec 2016 01:44:56 +0800</pubDate>
+      
+      <guid>http://bryanwongbh.github.io/unconventional/post/hello-hugo/</guid>
+      <description>&lt;p&gt;It is high-time now to update this site and now; instead of using &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; as the static site generator, this site is now using &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; instead!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/XDPrjrD.jpg&#34; alt=&#34;jekyll.JPG&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;====== To ======&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/DRF8uNF.jpg&#34; alt=&#34;hugo.JPG&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The page generation speed for Hugo is insanely fast as it is built with &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; and it has a lot of &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;themes&lt;/a&gt; that goes hand-in-hand with your site&amp;rsquo;s intent.&lt;/p&gt;
+
+&lt;p&gt;Highly recommended indeed and back to writing!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Back From the Ashes</title>
+      <link>http://bryanwongbh.github.io/unconventional/post/back-from-the-ashes/</link>
+      <pubDate>Tue, 21 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://bryanwongbh.github.io/unconventional/post/back-from-the-ashes/</guid>
+      <description>&lt;p&gt;Unconventional.co is now back online, powered by both &lt;a href=&#34;https://www.openshift.com&#34;&gt;Openshift&lt;/a&gt; and &lt;a href=&#34;http://octopress.org/&#34;&gt;Octopress&lt;/a&gt;. Stay tuned for more updates!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Renewal</title>
+      <link>http://bryanwongbh.github.io/unconventional/post/the-renewal/</link>
+      <pubDate>Tue, 21 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://bryanwongbh.github.io/unconventional/post/the-renewal/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;This post summarises on the setup of Octopress on Openshift which utilizes Greyshade theme as per Unconventional.co.&lt;/p&gt;
+
+&lt;p&gt;As I have mentioned in my previous &lt;a href=&#34;http://www.unconventional.co/blog/2013/05/21/back-from-the-ashes/&#34;&gt;post&lt;/a&gt;, Unconventional.co is alive and kicking! Previously, it is hosted on &lt;a href=&#34;https://www.heroku.com/&#34;&gt;Heroku&lt;/a&gt; and powered by &lt;a href=&#34;https://github.com/natew/obtvse&#34;&gt;Obtvse&lt;/a&gt;. After Heroku added a 10k rows of DB limit for its Development box, I thought it was time to explore on another Platform-as-a-Service (PaaS) and hopefully, I do not need to change to another service.
+Not to mention, I still got a lot to learn in terms of configuring a database (be it mysql or postgresql) to match it with a particular PaaS&amp;rsquo; offering (believe me, it is a pain in the a$$). Thus, having a blog that requires database configuration for a particular PaaS and maintenance is a hassle and I would much prefer to spend time to pen down ideas than to try to configure a database that works on one PaaS but does not work on another.&lt;/p&gt;
+
+&lt;p&gt;I have been working on &lt;a href=&#34;https://www.openshift.com/‎&#34;&gt;Openshift&lt;/a&gt; for a fair bit and its &lt;a href=&#34;https://www.openshift.com/developers/pricing&#34;&gt;pricing&lt;/a&gt; for its FreeShift is definitely attractive to most PaaS seekers out there (myself included). On the other hand, enlightenment dawns upon myself when I stumbled upon &lt;a href=&#34;http://octopress.org/&#34;&gt;Octopress&lt;/a&gt;. Without the need to manage database for blogging and also utilizing the hacker way of publishing via &lt;code&gt;git push&lt;/code&gt; to push updates to the server.&lt;/p&gt;
+
+&lt;p&gt;There are three parts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Setup an Openshift Account&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Setup Octopress and Link to Openshift&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install Greyshade Theme&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I would like to credit the deployment of Octopress to Openshift write-up to &lt;a href=&#34;http://www.shellco.de/&#34;&gt;Shellcode&lt;/a&gt; and the &lt;a href=&#34;http://shashankmehta.in/archive/2012/greyshade.html&#34;&gt;Greyshade&lt;/a&gt; theme design to Shashank Mehta.&lt;/p&gt;
+
+&lt;p&gt;And so, it begins&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;setup-an-openshift-account&#34;&gt;Setup an Openshift Account&lt;/h2&gt;
+
+&lt;p&gt;On this part, it is mainly about getting your own Openshift account and perform the necessary settings to accommodate Octopress deployment (for further details, please refer to &lt;a href=&#34;http://www.shellco.de/deploying-octopress-on-openshift/&#34;&gt;this&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;The necessary steps are:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Click on Add Application in the dashboard of your Openshift account&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Select and install Ruby 1.9 application&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Copy the generated git repository URL (As an &lt;strong&gt;example&lt;/strong&gt; &lt;code&gt;ssh://abc1234@blablabla-foobar.rhcloud.com/~/git/foobar.git/&lt;/code&gt;)&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;setup-octopress-and-link-to-openshift&#34;&gt;Setup Octopress and Link to Openshift&lt;/h2&gt;
+
+&lt;p&gt;Next, this will mainly describe on the necessary settings to setup Octopress in your local machine and subsequently push it to Openshift.&lt;/p&gt;
+
+&lt;p&gt;Below are the next steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;In your terminal, enter &lt;code&gt;git clone git://github.com/imathis/octopress.git octopress&lt;/code&gt; at wherever you want to have Octopress in your local machine&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enter into the Octopress directory&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In your terminal, enter &lt;code&gt;bundle install&lt;/code&gt; to compile the Gemfile&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Next, type &lt;code&gt;bundle exec rake install&lt;/code&gt; to complete Octopress setup&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Then, the local Octopress and Openshift has to be linked together in order to make the deployment to the PaaS a success (that is why the generated git repo URL is copied earlier on!). I have been following Shellcode&amp;rsquo;s methodology in having a staging public directory. I think this methodology of having a staging public directory and utilizing only the necessary files to commit is disk-space relieving for most PaaS and I like it. Anyway, moving on:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Copy the Gemfile and config.ru file generated from the Octopress setup&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Exit Octopress folder by going one level up or just enter &lt;code&gt;cd..&lt;/code&gt; in your terminal&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a &lt;em&gt;_deployment&lt;/em&gt; folder and enter into it&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Paste the copied Gemfile and config.ru file into the &lt;em&gt;_deployment&lt;/em&gt; folder&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;bundle install&lt;/code&gt; to generate a Gemfile.lock&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a &lt;em&gt;public&lt;/em&gt; folder in it&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;git init&lt;/code&gt; to initialize the repository&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;git remote add openshift ssh://abc1234@blablabla-foobar.rhcloud.com/~/git/foobar.git/&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;git add .&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;git commit -m &amp;quot;Initial commit&amp;quot;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Exit &lt;em&gt;_deployment&lt;/em&gt; folder by going one level up&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Copy &lt;em&gt;_deployment folder&lt;/em&gt; and enter Octopress folder&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Paste &lt;em&gt;_deployment folder&lt;/em&gt; within Octopress folder&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;git add _deployment/&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;bundle exec rake new_post[&#39;Hello World&#39;]&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Edit the newly generated markdown file however you want and save it&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;bundle exec rake generate&lt;/code&gt; and this will generate some files within your public folder (&lt;em&gt;octopress/public&lt;/em&gt;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enter into the directory &lt;em&gt;octopress/_deployment/public&lt;/em&gt; and delete everything inside there&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Copy all the files generated from &lt;em&gt;octopress/public&lt;/em&gt; to &lt;em&gt;octopress/_deployment/public&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enter to the folder &lt;em&gt;octopress/_deployment&lt;/em&gt; in your terminal&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;git add .&lt;/code&gt; to add all the new files to be pushed to the Openshift repo&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;git commit -m &amp;quot;New blog post&amp;quot;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;git push openshift master&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Then you will see Openshift spewing some stuff out in your terminal to show the background jobs running and once you see &lt;code&gt;remote: Done&lt;/code&gt;, you can visit the URL of your blog in Openshift check how awesome it is to have it hosted there!&lt;/p&gt;
+
+&lt;h2 id=&#34;setup-greyshade-theme&#34;&gt;Setup Greyshade Theme&lt;/h2&gt;
+
+&lt;p&gt;Finally, this is regarding the installation of Greyshade theme to Octopress. The few main reasons why utilize Greyshade theme are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Responsiveness design (try use a mobile phone or tablet to view it, everything scales nicely)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Simple and clean user interface&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Nicely designed favicon included for social media&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The instructions for this portion is adopted from &lt;a href=&#34;https://github.com/shashankmehta/greyshade&#34;&gt;here&lt;/a&gt;. So the steps in this part are:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Enter into the octopress folder in your local machine via your terminal&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;git clone git@github.com:shashankmehta/greyshade.git .themes/greyshade&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Go to this &lt;a href=&#34;http://hslpicker.com/&#34;&gt;website&lt;/a&gt; and pick a colour theme that you have not seen in &lt;a href=&#34;https://github.com/shashankmehta/greyshade/wiki/Sites-using-Greyshade&#34;&gt;here&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In your terminal, type &lt;code&gt;echo &amp;quot;\$greyshade: *colour*;&amp;quot; &amp;gt;&amp;gt; sass/custom/_colors.scss //Substitue &#39;color&#39; with your highlight color&lt;/code&gt;; substitute &lt;em&gt;colour&lt;/em&gt; with your chosen colour theme&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;bundle exec rake &amp;quot;install[greyshade]&amp;quot;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Delete everything that is within &lt;em&gt;octopress/public&lt;/em&gt; and &lt;em&gt;octopress/public/_deployment&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;bundle exec rake generate&lt;/code&gt; and copy the generated files in &lt;em&gt;octopress/public&lt;/em&gt; to &lt;em&gt;octopress/public/_deployment&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Add your updated files for pushing to Openshift repo by typing &lt;code&gt;git add .&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type &lt;code&gt;git commit -m &amp;quot;Updated theme for Octopress&amp;quot;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Push your update to Openshift repo by typing &lt;code&gt;git push openshift master&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Go to the URL of your Openshift application and marvel upon the Greyshade themed Octopress, hosted by Openshift&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Thus, with this &lt;em&gt;unconventional&lt;/em&gt; way of blog setup (rather than using readily-made available services such as Tumblr, hosted Wordpress or Blogger), learning via technology and blogging would definitely be fun! Cheers for your attention!&lt;/p&gt;
+
+&lt;p&gt;P.S. If you see any mistakes or just want to say hi, just drop a note below!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

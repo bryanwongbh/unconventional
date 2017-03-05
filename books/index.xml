@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Books-rsses on Think Different</title>
+    <link>http://bryanwongbh.github.io/unconventional/books/index.xml</link>
+    <description>Recent content in Books-rsses on Think Different</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 May 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://bryanwongbh.github.io/unconventional/books/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Books</title>
+      <link>http://bryanwongbh.github.io/unconventional/books/</link>
+      <pubDate>Thu, 23 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://bryanwongbh.github.io/unconventional/books/</guid>
+      <description>
+
+&lt;h2 id=&#34;bryan-s-bookshelf&#34;&gt;Bryan&amp;rsquo;s Bookshelf&lt;/h2&gt;
+
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-md-12&#34;&gt;
+    &lt;img src= &#34;/images/poorcharliealmanack.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+    &lt;img src= &#34;/images/theintelligentinvestor.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-md-12&#34;&gt;
+    &lt;img src= &#34;/images/thesnowball.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+    &lt;img src= &#34;/images/fiverulesforsuccessfulstockinvesting.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-md-12&#34;&gt;
+    &lt;img src= &#34;/images/increaseyourfinancialiq.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+    &lt;img src= &#34;/images/milandoshipropertyinvestor.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-md-12&#34;&gt;
+    &lt;img src= &#34;/images/milandoshistockandproperty.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+    &lt;img src= &#34;/images/7habitsofhighlyeffectivepeople.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-md-12&#34;&gt;
+    &lt;img src= &#34;/images/startupownermanual.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+    &lt;img src= &#34;/images/zerotoone.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-md-12&#34;&gt;
+    &lt;img src= &#34;/images/commonstocksanduncommonprofits.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+    &lt;img src= &#34;/images/likeavirgin.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-md-12&#34;&gt;
+    &lt;img src= &#34;/images/hardthingsabouthardthings.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+    &lt;img src= &#34;/images/titan.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-md-12&#34;&gt;
+    &lt;img src= &#34;/images/securityanalysis.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+    &lt;img src= &#34;/images/ember101.jpg&#34; style=&#34;margin:0 10px 10px 0; width:200px; height:300px;&#34; \&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

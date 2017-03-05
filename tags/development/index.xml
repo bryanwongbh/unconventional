@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Think Different</title>
+    <link>http://bryanwongbh.github.io/unconventional/tags/development/index.xml</link>
+    <description>Recent content on Think Different</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://bryanwongbh.github.io/unconventional/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hello Hugo</title>
+      <link>http://bryanwongbh.github.io/unconventional/post/hello-hugo/</link>
+      <pubDate>Wed, 07 Dec 2016 01:44:56 +0800</pubDate>
+      
+      <guid>http://bryanwongbh.github.io/unconventional/post/hello-hugo/</guid>
+      <description>&lt;p&gt;It is high-time now to update this site and now; instead of using &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; as the static site generator, this site is now using &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; instead!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/XDPrjrD.jpg&#34; alt=&#34;jekyll.JPG&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;====== To ======&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/DRF8uNF.jpg&#34; alt=&#34;hugo.JPG&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The page generation speed for Hugo is insanely fast as it is built with &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; and it has a lot of &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;themes&lt;/a&gt; that goes hand-in-hand with your site&amp;rsquo;s intent.&lt;/p&gt;
+
+&lt;p&gt;Highly recommended indeed and back to writing!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Back From the Ashes</title>
+      <link>http://bryanwongbh.github.io/unconventional/post/back-from-the-ashes/</link>
+      <pubDate>Tue, 21 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://bryanwongbh.github.io/unconventional/post/back-from-the-ashes/</guid>
+      <description>&lt;p&gt;Unconventional.co is now back online, powered by both &lt;a href=&#34;https://www.openshift.com&#34;&gt;Openshift&lt;/a&gt; and &lt;a href=&#34;http://octopress.org/&#34;&gt;Octopress&lt;/a&gt;. Stay tuned for more updates!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

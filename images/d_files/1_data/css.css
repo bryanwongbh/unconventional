@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Quattrocento Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Quattrocento Sans'), local('QuattrocentoSans'), url(https://fonts.gstatic.com/s/quattrocentosans/v8/efd6FGWWGX5Z3ztwLBrG9czpYVnxV7fe3GzmF357o4o.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Quattrocento Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Quattrocento Sans Bold'), local('QuattrocentoSans-Bold'), url(https://fonts.gstatic.com/s/quattrocentosans/v8/tXSgPxDl7Lk8Zr_5qX8FISMwD46KpV4ZaXo4aI1TkGT3rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Quattrocento Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Quattrocento Sans Italic'), local('QuattrocentoSans-Italic'), url(https://fonts.gstatic.com/s/quattrocentosans/v8/8PXYbvM__bjl0rBnKiByg8U24UJfbzJ9ET0A0A7WzuM.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Quattrocento Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Quattrocento Sans Bold Italic'), local('QuattrocentoSans-BoldItalic'), url(https://fonts.gstatic.com/s/quattrocentosans/v8/8N1PdXpbG6RtFvTjl-5E7bRIUeN0_SdYJhpvtbm9iybr7w4p9aSvGirXi6XmeXNA.woff2) format('woff2');
+}

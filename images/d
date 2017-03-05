@@ -1,0 +1,1341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html data-ember-extension="1" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="google-site-verification" content="zx76jZJ5vLEImdzmHRfa_rmRl5tLM1PCUIpzawwVxO0">
+        <title>
+            Utopia
+            -
+            Kingdom Details
+        </title>
+        <link rel="shortcut icon" href="http://utopia-game.com/wol/static/common/images/fav_icon.png">
+        
+            <!-- STYLE SHEETS -->
+            <link rel="stylesheet" type="text/css" href="d_files/reset.css">
+            
+            <link rel="stylesheet" type="text/css" href="d_files/layout.css">
+            <link rel="stylesheet" type="text/css" href="d_files/uniform.css">
+            
+            
+            <link rel="stylesheet" type="text/css" href="d_files/theme.css">
+
+            
+            
+        
+
+        <script src="d_files/ads.js"></script><script src="d_files/measure.js"></script><script src="d_files/all.js" id="facebook-jssdk"></script><script src="d_files/analytics.js" async=""></script><script type="text/javascript" async="" src="d_files/uto.js"></script>
+
+        
+            <!-- SCRIPTS -->
+            <script type="text/javascript" src="d_files/jquery-1.js"></script><style>.pagefair-acceptable,
+#header + #content > #left > #rlblock_left,
+#skyscraper-ad
+{display:none !important;}</style>
+            <script type="text/javascript" src="d_files/jquery-ui-1.js"></script>
+            <script type="text/javascript" src="d_files/jquery-plugins.js"></script>
+            <script type="text/javascript" src="d_files/utils.js"></script>
+            <script type="text/javascript" src="d_files/django_jquery_ajax.js"></script>
+            <script type="text/javascript" src="d_files/account_options.js"></script>
+            <script type="text/javascript" src="d_files/jquery.js"></script>
+            <script type="text/javascript" src="d_files/feedback.js"></script>
+            <script type="text/javascript" src="d_files/jquery_002.js"></script>
+            <script type="text/javascript" src="d_files/cc.js"></script>
+            <script type="text/javascript" src="d_files/swfobject-2.js"></script>
+            <script type="text/javascript" src="d_files/jquery_004.js"></script>
+            <script type="text/javascript" src="d_files/jquery_006.js"></script>
+        
+
+        <script type="text/javascript">
+            function setupJWYSIWYG() {
+                // Style any formatted comments on the page.
+                $('textarea.formatted-text').wysiwyg({
+                    'controls': {
+                        'justifyLeft': {'visible': false},
+                        'justifyCenter': {'visible': false},
+                        'justifyRight': {'visible': false},
+                        'justifyFull': {'visible': false},
+                        'indent': {'visible': false},
+                        'outdent': {'visible': false},
+                        'undo': {'visible': false},
+                        'redo': {'visible': false},
+                        'insertHorizontalRule': {'visible': false},
+                        'insertImage': {'visible': false},
+                        'h1': {'visible': true},
+                        'h2': {'visible': false},
+                        'h3': {'visible': false},
+                        'paragraph': {'visible': false},
+                        'increaseFontSize': {'visible': false},
+                        'decreaseFontSize': {'visible': false},
+                        'html': {'visible': false},
+                        'insertTable': {'visible': false},
+                        'createLink': {'visible': false},
+                        'code': {'visible': false},
+                        'removeFormat': {'visible': false},
+                        'strikeThrough': {'visible': false},
+                        'subscript': {'visible': false},
+                        'superscript': {'visible': false}
+                    },
+                    'css': '/wol/static/common/css/default_theme/theme.css',
+                    'initialContent': '',
+                    'iFrameClass': 'formatted-comment',
+                    'autoSave': true
+                });
+            }
+
+            $(document).ready(function(eventObject) {
+                // Setup any editable text areas.
+                
+                    setupJWYSIWYG();
+                
+
+                // Setup triggers that open overlays/lightboxes
+                var overlay_params = {
+                    mask: {
+                        color: '#000000',
+                        loadSpeed: 200,
+                        opacity: 0.5
+                    }
+                };
+                $(".overlay-trigger[rel]").overlay(overlay_params);
+                // Setup uniform form styling.
+                $("select, input:checkbox, input:radio, input:file").uniform();
+
+                // Catch clicks on shop login links
+                $(".shop-login-link").click(function() {
+                    $("#id-shop-login-form").submit();
+                });
+
+                
+            });
+        </script>
+
+        
+            <script type="text/javascript">
+    (function() {
+        function async_load(script_url){
+            var protocol = ('https:' == document.location.protocol ? 'https://' : 'http://');
+            var s = document.createElement('script'); s.src = protocol + script_url;
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        }
+        bm_website_code = '386692AE089311E2'; 
+        jQuery(document).ready(function(){async_load('asset.pagefair.com/measure.min.js')});
+        jQuery(document).ready(function(){async_load('asset.pagefair.net/ads.min.js')});
+    })();
+</script>
+        
+        <!-- UA -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+
+    ga('create', 'UA-10656365-12', {
+        
+            'clientId': 'AD009F22'
+        
+    });
+
+    
+        ga('send', 'pageview');
+    
+</script>
+        <!-- PUT THIS TAG IN THE head SECTION -->
+<script type="text/javascript" src="d_files/google_service.js">
+</script>
+<script type="text/javascript">
+  GS_googleAddAdSenseService("ca-pub-8478455431877379");
+  GS_googleEnableAllServices();
+</script>
+<script type="text/javascript">
+  GA_googleAddSlot("ca-pub-8478455431877379", "Utopia_game-mid_mpu");
+  GA_googleAddSlot("ca-pub-8478455431877379", "Utopia_game-right_skyscraper");
+  GA_googleAddSlot("ca-pub-8478455431877379", "Utopia_game-top_leaderboard");
+</script>
+<script type="text/javascript">
+  GA_googleFetchAds();
+</script>
+<!-- END OF TAG FOR head SECTION -->
+        <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10656365-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        
+            ga.src = 'http://www.google-analytics.com/ga.js';
+        
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+    })();
+</script><script src="d_files/ga.js" async="" type="text/javascript"></script>
+
+<script type="text/javascript">
+    // NOTE: This solution reports false positives when a user alt-tabs out of a page while hovering over an ad.
+    $(document).ready( function() {
+        // Flag that tracks whether the mouse is hovering over an iFrame.
+        var overiFrame = false;
+        infunc = function() { overiFrame = true; };
+        outfunc = function() { overiFrame = false; };
+
+        // Setup infunc, outfunc handlers for all standard IAB sizes
+        // See http://en.wikipedia.org/wiki/Web_banner
+        $('#leaderboard-ad,#skyscraper-ad,#ad-words').hover(infunc, outfunc);
+
+        user_type = function() {
+            var history = getCookie('bm_history');
+            var u_type = 'normal_user';
+
+            if (history != null){
+                var h_list = history.split(',');
+                // unblocked users have particular statuses in their history
+                // NOT_BLOCKING
+                // or FIRST_NOT_BLOCKING and !BLOCKING
+                if (h_list.indexOf('VIEWED_APPEAL') != -1
+                        && (h_list.indexOf('NOT_BLOCKING') != -1
+                        || (h_list.indexOf('FIRST_NOT_BLOCKING') != -1 && h_list.indexOf('BLOCKING') == -1))){
+
+                    u_type = 'unblocked_user';
+                }
+            }
+            return u_type;
+        }
+
+        // If the window loses focus, assume it's because the use clicked on an ad in the iframes.
+        var probable_click_reported = false;
+        $(window).blur( function(e) {
+            if(overiFrame && !probable_click_reported) {
+                _gaq.push(['_trackEvent', 'probable_ad_click', user_type()]);
+                probable_click_reported = true;
+            }
+        });
+
+        // This version is more sure to work, and is only called if the page location is about to change.
+        // However, it may not work on as many browsers and needs to be properly tested against actual adsense iframes.
+        var click_reported = false;
+        window.onbeforeunload = function() {
+            if(overiFrame && !click_reported) {
+                _gaq.push(['_trackEvent', 'definite_ad_click', user_type()]);
+                click_reported = true;
+            }
+        };
+    });
+</script>
+
+        
+    
+    
+        
+    <script type="text/javascript" src="d_files/jquery_005.js"></script>
+    <script type="text/javascript" src="d_files/bookmark_options.js"></script>
+
+    
+
+    <script type="text/javascript" src="d_files/jquery_003.js"></script>
+    <script type="text/javascript">
+
+        function get_honor_value(htitle_) {
+            //translate honour to a number
+            htitle = htitle_.toLowerCase();
+            if (htitle == "peasant") return 10;
+            if (htitle == "-") return 10;
+            else if (htitle == 'knight' || htitle == 'lady') return 9;
+            else if (htitle == 'lord' || htitle == 'noble lady') return 8;
+            else if (htitle == 'baron' || htitle == 'baroness') return 7;
+            else if (htitle == 'viscount' || htitle == 'viscountess') return 6;
+            else if (htitle == 'count' || htitle == 'countess') return 5;
+            else if (htitle == 'marquis' || htitle == 'marchioness') return 4;
+            else if (htitle == 'duke' || htitle == 'duchess') return 3;
+            else if (htitle == 'prince' || htitle == 'princess') return 2;
+            else if (htitle == 'king' || htitle == 'queen') return 1;
+            else return false;
+        }
+        // add parser through the tablesorter addParser method
+        $.tablesorter.addParser({
+            // set a unique id
+            id: 'gold_coin_parser',
+            is: function(s) {
+                // return false so this parser is not auto detected
+                return false;
+            },
+            format: function(s) {
+                // format gc values
+                return s.replace("gc","").replace(/,/g,"");
+            },
+            // set type, either numeric or text
+            type: 'numeric'
+        });
+        $.tablesorter.addParser({
+            // set a unique id
+            id: 'land_parser',
+            is: function(s) {
+                // return false so this parser is not auto detected
+                return false;
+            },
+            format: function(s) {
+                // format gc values
+                return s.replace(" acres","").replace(/,/g,"");
+            },
+            // set type, either numeric or text
+            type: 'numeric'
+        });
+        $.tablesorter.addParser({
+            // set a unique id
+            id: 'honor_parser',
+            is: function(s) {
+                // return false so this parser is not auto detected
+                return false;
+            },
+            format: function(s) {
+                // format gc values
+                return get_honor_value(s);
+            },
+            // set type, either numeric or text
+            type: 'numeric'
+        });
+        var kingom_data_extraction = function(node)
+        {
+            text = $(node).text();
+            if (text == "-")
+                // Unused kingdom slots
+                return "";
+            else
+                return text;
+        }
+        $(document).ready(function(){
+            $(".tablesorter").tablesorter({
+                textExtraction: kingom_data_extraction,
+                headers: {
+                    // Sorter for province name must be specified (is not auto detected)
+                    1: {sorter:'text'},
+                    // Custom sorter for Land
+                    3: {sorter:'land_parser'},
+                    // Custom sorter for net worth, net worth / acre
+                    4: {sorter:'gold_coin_parser'},
+                    5: {sorter:'gold_coin_parser'},
+                    6: {sorter:'honor_parser'}
+                }
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="d_files/chat.css" type="text/css"><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow-x:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+    <body>
+        <!-- Facebook like API follows. -->
+        <div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="http://static.ak.facebook.com/connect/xd_arbiter/TlA_zCeMkxl.js?version=41#channel=f232857fd932b98&amp;origin=http%3A%2F%2Futopia-game.com" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0"></iframe><iframe src="d_files/TlA_zCeMkxl_002.html" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+        
+            <div id="outer-container">
+                <div id="inner-container">
+                    
+                        <div id="header">
+                            
+                                <a href="http://utopia-game.com/shared//"><div id="header-logo"></div></a>
+                            
+                            <div id="header-navigation"><div class="navigation"><a href="http://utopia-game.com/wol/sit/game/throne">Go to SITTER</a></div>
+                                
+                                    <div class="navigation"><a href="http://utopia-game.com/shared/lobby/">Lobby</a></div>
+                                    <div class="navigation"><a class="shop-login-link" href="#">Shop</a></div>
+                                    <div class="navigation"><a href="http://utopia-game.com/shared/common/ranking_archive/">Rankings</a></div>
+                                
+                                <div class="navigation"><a href="http://forums.utopia-game.com/forumdisplay.php?1527-Utopia">Forum</a></div>
+                                <div class="navigation"><a href="http://wiki.utopia-game.com/index.php?title=Game_Rules">Rules</a></div>
+                                <div class="navigation"><a href="http://wiki.utopia-game.com/">Guide</a></div>
+                                <div class="navigation"><a href="http://blog.utopia-game.com/">Blog</a></div>
+                            </div>
+
+                            
+                            <div>
+                                <form id="id-shop-login-form" method="post" action="http://shop.utopia-game.com/account_management/login_from_game/">
+                                    <input name="auth_token" value="ZFn5Cp1ryYhthKG0pWIkZejPeoR3zDAyAt8P9KOgDDonkQ5KD3pZIStHLfygIv5FAjqWVWmvdbzq6UrJtGO6QdtukREJFiH+s7KjPMbVImi6DlQLvif8JIbkUQWCMf8Jjp1MTwM/HcXxEqAczb4Os84KYVALBF9ITpU6tiqw58QZWehdcZesQkyjcEgn6xKeJmbN5j8ConjnH6Y39CfZ/g==" type="hidden">
+                                    <input name="checksum" value="398032e7624e3f7d616117d986b1f477" type="hidden">
+                                </form>
+                            </div>
+                                <div id="account-container">
+                                    <div id="account-header" rel="#account-details">
+                                        
+                                            <div class="account-image"></div>
+                                        
+                                        <div class="account-name">
+                                            
+                                                Bryan
+                                            
+                                        </div>
+                                        <div class="down-arrow"></div>
+                                    </div>
+                                    <div id="account-details" class="shadow navigation">
+                                        <div class="account-title">Account Details</div>
+                                        <div class="account-summary">
+                                            <div>Bryan Wong</div>
+                                            <div>bwbh87@yahoo.com</div>
+                                            
+
+                                            
+                                        </div>
+                                        <div id="account-links">
+                                            <div id="account-link-remove-ads"><a href="http://utopia-game.com/shared/adblocker/update/">Remove&nbsp;Advertising</a></div>
+                                            <div id="account-link-edit-profile"><a href="http://utopia-game.com/shared//user_profile_edit/">Public&nbsp;Profile</a></div>
+                                            <div id="account-link-settings"><a href="http://utopia-game.com/shared//account_settings/">Account&nbsp;Settings</a></div>
+                                            <div id="account-link-report-bug"><a href="http://utopia-game.com/shared/feedback/report_bug_instructions/">Report&nbsp;Bug</a></div>
+                                        </div>
+                                        
+
+                                        <div class="account-signout"><a href="http://utopia-game.com/shared//logout/?next=/">Log&nbsp;Out</a></div>
+                                    </div>
+                                </div>
+                            
+                        </div><div id="ircchat"><div id="irccontainer" style="display: table; border: 1px solid black; position: relative; width: 100%; height: 85px; visibility: visible;"><div id="showchat" style="width: 80%;height:85px;overflow:auto;-webkit-overflow-scrolling: touch;resize: vertical;">
+	Last donate was 94 days ago -- only &lt;90 can use ingame irc -- use 
+site. Please consider supporting the development of munkbot</div><div id="irconline" style="position:absolute;top:0px;left:80%;width:20%;overflow-y:auto;height:100%;">	warriorsoath<hr>USERS (1)<hr><br><hr>INGAME (1)<hr>fazzy<br><br></div></div><br><center>Text: <input id="ircmsg" size="50" type="text"> <button id="refreshchat">Send</button><button id="resizeirc">Size</button><button id="closeirc">Close</button></center></div>
+                    
+
+                    <div id="middle">
+                        <div id="left-column">
+
+                                
+                                    
+                                        
+                                            <div style="width: 750px;height: 90px;padding: 5px;margin-left: 100px;">
+
+    <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-5229636934656944";
+        /* Utopia Top Leaderboard */
+        google_ad_slot = "6195952045";
+        google_ad_width = 728;
+        google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="d_files/show_ads.js">
+    </script>
+
+    <div style="display: none ! important;" id="1822111901" zone_id="1822111901" class="pagefair-acceptable"></div>
+</div>
+                                        
+                                    
+                                
+
+                            <div id="content-area">
+                                
+
+    
+    <div id="game-navigation">
+        <div class="current-date">Apr 13, YR13</div>
+
+        
+        <div class="navigation">
+            <div><a href="http://utopia-game.com/wol/game/throne">Throne</a><a href="http://utopia-game.com/wol/game/council_state"><img style="vertical-align:middle" src="d_files/advisor.png" height="20"></a></div>
+            <div><a href="http://utopia-game.com/wol/game/kingdom_details">Kingdom</a></div><div><a id="enemylink" href="http://utopia-game.com/wol/game/kingdom_details/1/2">Enemy</a></div>
+            <div><a href="http://utopia-game.com/wol/game/province_news">News</a></div><div><a href="http://utopia-game.com/wol/game/kingdom_news">KD-News</a></div>
+        </div>
+
+
+        
+        <div class="navigation">
+            <div><a href="http://utopia-game.com/wol/game/explore">Explore</a></div>
+            <div><a href="http://utopia-game.com/wol/game/build">Growth</a><a href="http://utopia-game.com/wol/game/council_internal"><img style="vertical-align:middle" src="d_files/advisor.png" height="20"></a></div>
+            <div><a href="http://utopia-game.com/wol/game/science">Sciences</a><a href="http://utopia-game.com/wol/game/council_learn"><img style="vertical-align:middle" src="d_files/advisor.png" height="20"></a></div>
+            <div><a href="http://utopia-game.com/wol/game/train_army">Military</a><a href="http://utopia-game.com/wol/game/council_military"><img style="vertical-align:middle" src="d_files/advisor.png" height="20"></a></div>
+            <div><a href="http://utopia-game.com/wol/game/wizards">Wizards</a></div>
+        </div>
+
+        
+        <div class="navigation">
+            <div><a href="http://utopia-game.com/wol/game/enchantment">Mystics</a><a href="http://utopia-game.com/wol/game/council_spells"><img style="vertical-align:middle" src="d_files/advisor.png" height="20"></a></div><div><a href="http://utopia-game.com/wol/game/sorcery">Sorcery</a></div>
+            <div><a href="http://utopia-game.com/wol/game/thievery">Thievery</a></div>
+            <div><a href="http://utopia-game.com/wol/game/send_armies">War&nbsp;Room</a></div>
+            <div><a href="http://utopia-game.com/wol/game/aid">Aid</a> <font id="aidnum" color="red">(2)</font></div>
+
+            
+                
+                    <div><a href="http://utopia-game.com/wol/game/attack_dragon">Dragons</a></div>
+                
+            
+        </div>
+
+        
+        <div class="navigation">
+            <div><a href="http://utopia-game.com/wol/mail/inbox/">Mail</a></div>
+            <div><a href="http://utopia-game.com/wol/kingdom_forum/topics/">Forum</a></div><div><a href="http://warriorsoath.umunk.net/" target="_blank">Intel-Site</a></div>
+            
+                <div><a href="http://utopia-game.com/wol/war_forum/topics/">War&nbsp;Forum</a></div>
+            
+        </div>
+
+        
+        <div class="navigation">
+            
+                <div><a href="http://utopia-game.com/wol/game/monarchy">Monarchy</a></div><div><a href="http://utopia-game.com/wol/game/nap">CFs</a></div>
+            
+            
+                <div><a href="http://utopia-game.com/wol/game/recruitment/">Recruit</a></div>
+                
+            
+
+            <div><a href="http://utopia-game.com/wol/game/vote">Politics</a></div>
+            <div><a href="http://utopia-game.com/wol/game/ranking">Rankings</a></div>
+        </div>
+
+        
+        <div class="navigation">
+            <div><a href="http://utopia-game.com/wol/game/preferences/">Preferences</a></div><div><input id="toggler2" value="Munk prefs" type="button"><br><input id="getbot" value="bot" type="button">|<input id="openirc" value="IRC" type="button"></div><div id="prefs"></div><input src="d_files/donate2.png" onclick="showbitcoin();" border="0" type="image" width="68"><br>^^<br><p id="donatebox" style="background:white;color:green"><u>1</u> days since last donation.<br>Thank you <b>HD</b> &lt;3<br>Month goal: <u>40%</u> fulfilled<br>Last Month: <u>79%</u> fulfilled<br>(<u>94</u> days since your KD last donated)</p>
+        </div>
+    </div>
+    
+
+    
+        
+
+    <table id="resource-bar">
+        <thead>
+            <tr>
+                <th>Money</th>
+                <th>Peasants</th>
+                <th>Food</th>
+                <th>Runes</th>
+                <th>Net Worth</th>
+                <th>Land</th>
+                <th>Net Worth/Acre</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            
+            
+            
+
+                
+
+            <tr>
+                <th>15,755</th>
+                <th>10,290</th>
+                <th>102,714</th>
+                <th>1,911</th>
+                <th>318,464</th>
+                <th>1,892</th>
+                <th>168.321</th>
+            </tr>
+
+            
+            
+            
+        </tbody>
+    </table>
+
+
+    
+    
+                                
+
+    <div style="visibility: visible;" id="overlay"> IRCBOT:<input size="30" id="botcommand" type="text"><button id="getresponse">Send</button><button onclick="$('#botresponse').html('');">Clear</button><button onclick="$('#overlay').fadeOut();">Close</button><button id="logout">Logout</button> Eg. def/sot/som/list<div id="botresponse"></div><div id="botload"></div></div><div style="display: block;" class="game-header"><div class="game-header">
+    
+    
+    
+
+    
+        <h1>Kingdom Details</h1>
+        <a href="http://utopia-game.com/wol/game/kingdom_intel/1/2"><h1>Espionage</h1></a>
+    
+
+    </div></div>
+
+    <div style="visibility: visible; display: block; background-color: rgba(240, 50, 50, 0.2);" class="game-content">
+    
+
+    
+
+    
+
+    
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        //Auto submit Change Kingdom form on bookmark selection
+        $(".use-shortcut").click(function () {
+            $("#id_kingdom").val($(this).attr("kingdom_num"));
+            $("#id_island").val($(this).attr("island_num"));
+            $("#change-kingdom-button").click();
+        });
+
+        //Submit add bookmark form on link click
+        $("#id_add_bookmark_link").click(function () {
+            // Copy values from change kingdom form
+            $("#id_add_bookmark_form [name='kingdom_number']").val($("#id_kingdom").val());
+            $("#id_add_bookmark_form [name='island_number']").val($("#id_island").val());
+            $("#id_add_bookmark_form [name='next_url']").val($("#id_next_url").val());
+            $("#id_add_bookmark_form").submit();
+        });
+
+        
+            $("#add-royal-command").click(function () {
+                // if a command exists for the current kingdom then it should be edited
+                kingdom_num = $("#id_kingdom").val()
+                island_num = $("#id_island").val()
+                command_exists = false;
+                $(".edit-royal-command").each(function(index) {
+                    // check for a match
+                    if ($(this).attr("kingdom_num") == kingdom_num && $(this).attr("island_num") == island_num){
+                        $(this).click();
+                        command_exists = true;
+                    }
+                });
+                if (!command_exists){
+                    // Otherwise fetch the html for creating a new command
+                    $("#royal-commands").show();
+                    $("#new-royal-command").show();
+                    $("#new-royal-command-content").load("/wol/game/royal_commands");
+                }
+            });
+
+            //Show edit and delete buttons
+            $(".edit-royal-command").click(function () {
+                $(this).parent().hide();
+                $(this).parent().next().show();
+            });
+
+            $(".cancel-edit-royal-command").click(function () {
+                $(this).parent().hide();
+                $(this).parent().prev().show();
+            });
+
+            $(".update-royal-command").click(function () {
+
+                $("#id_set_royal_command_form [name='kingdom_number']").val($(this).parent().attr("kingdom_num"));
+                $("#id_set_royal_command_form [name='island_number']").val($(this).parent().attr("island_num"));
+                // get the next url from the change kingdom form
+                $("#id_set_royal_command_form [name='next_url']").val($("#id_next_url").val());
+                // Instruction is in the input field before this link
+                instruction = $(this).prev().val();
+                $("#id_set_royal_command_form [name='instruction']").val(instruction);
+                $("#id_set_royal_command_form").submit();
+            });
+
+            $(".delete-royal-command").click(function () {
+
+                $("#id_remove_royal_command_form [name='kingdom_number']").val($(this).parent().attr("kingdom_num"));
+                $("#id_remove_royal_command_form [name='island_number']").val($(this).parent().attr("island_num"));
+                // get the next url from the change kingdom form
+                $("#id_remove_royal_command_form [name='next_url']").val($("#id_next_url").val());
+                $("#id_remove_royal_command_form").submit();
+            });
+        
+    });
+</script>
+
+<form id="id_add_bookmark_form" method="POST" action="/wol/game/bookmarks/add">
+    <div style="display:none"><input name="csrfmiddlewaretoken" value="RtNNi2lSOgmd53Q27LuAJfm6KdG79wjc" type="hidden"></div>
+    <input name="kingdom_number" type="hidden">
+    <input name="island_number" type="hidden">
+    <input name="next_url" type="hidden">
+</form>
+
+
+    <form id="id_remove_royal_command_form" method="POST" action="/wol/game/royal_commands/remove">
+        <div style="display:none"><input name="csrfmiddlewaretoken" value="RtNNi2lSOgmd53Q27LuAJfm6KdG79wjc" type="hidden"></div>
+        <input name="instruction" type="hidden">
+        <input name="kingdom_number" type="hidden">
+        <input name="island_number" type="hidden">
+        <input name="next_url" type="hidden">
+    </form>
+
+    <form id="id_set_royal_command_form" method="POST" action="/wol/game/royal_commands/set">
+        <div style="display:none"><input name="csrfmiddlewaretoken" value="RtNNi2lSOgmd53Q27LuAJfm6KdG79wjc" type="hidden"></div>
+        <input name="instruction" type="hidden">
+        <input name="kingdom_number" type="hidden">
+        <input name="island_number" type="hidden">
+        <input name="next_url" type="hidden">
+    </form>
+
+
+
+<form method="GET" action="/wol/game/kingdom_details_redirect" class="change-kingdom">
+
+    <div style="display:none"><input name="csrfmiddlewaretoken" value="RtNNi2lSOgmd53Q27LuAJfm6KdG79wjc" type="hidden"></div>
+    <div class="change-kingdom-heading">
+        
+    Current kingdom is Money (<a href="http://utopia-game.com/wol/game/kingdom_details/1/2">1:2</a>)
+
+    </div>
+
+    
+    <div class="change-kingdom-nav">
+        <a href="http://utopia-game.com/wol/game/kingdom_details/1/2?previous" class="button-link">&lt; Previous</a>
+        <a href="http://utopia-game.com/wol/game/kingdom_details_random" class="button-link">Random</a>
+        <a href="http://utopia-game.com/wol/game/kingdom_details/1/2?next" class="button-link">Next &gt;</a>
+    </div>
+
+
+    <div id="royal-commands" style="display: none;">
+        <table>
+            
+            <tbody><tr id="new-royal-command" style="display: none;">
+                <th class="kingdom-label">Money (<a href="http://utopia-game.com/wol/game/kingdom_details/1/2">1:2</a>)</th>
+                <td id="new-royal-command-content"></td>
+                <td></td>
+            </tr>
+        </tbody></table>
+    </div>
+
+    <input name="next_url" value="/wol/game/kingdom_details/1/2" id="id_next_url" type="hidden">
+    <div class="change-kingdom-form">
+
+        
+            <a id="add-royal-command" href="#add" title="Royal command">
+                <div id="royal-command-container">
+                    <div id="royal-command-icon"></div>
+                </div>
+            </a>
+        
+
+        <div id="bookmark-container" title="Bookmarks">
+            <div id="bookmark-header"></div>
+            <div id="bookmark-details" class="navigation">
+                <div><a id="id_add_bookmark_link" href="#add">Add to bookmarks</a></div>
+                
+            </div>
+        </div>
+
+
+        <input name="kingdom" value="1" class="two-digit-input" maxlength="2" id="id_kingdom" type="text">&nbsp;:&nbsp;<input name="island" value="2" class="two-digit-input" maxlength="2" id="id_island" type="text">
+        <input value="Go" name="change_kingdom" id="change-kingdom-button" type="submit">
+        <div class="change-kingdom-errors">
+            
+            
+            
+            
+        </div>
+    </div>
+</form>
+
+    
+        
+            <div class="reportable" content_id="15118693"><img src="d_files/flag-20-04-Dec-2015-06-21-11.jpg"></div>
+        
+    
+
+    
+
+<table class="two-column-stats">
+    <tbody>
+        <tr>
+            <th>Total Provinces</th>
+            <td>15</td>
+            <th>Stance</th>
+            <td>Normal</td>
+        </tr>
+        <tr>
+            <th>Total Networth</th>
+            <td>4,041,299gc (avg: 269,419gc)<br>(med: 239642gc)</td>
+            <th>Net Worth Rank</th>
+            <td>131 of 167</td>
+        </tr>
+        <tr>
+            <th>Total Land</th>
+            <td>27,416 acres (avg: 1,827 acres)<br>(med: 1805a)</td>
+            <th>Land Rank</th>
+            <td>121 of 167</td>
+        </tr>
+        <tr>
+            <th>Total Honor</th>
+            <td>26,847</td>
+            <th>Honor Rank</th>
+            <td>151 of 167</td>
+        </tr>
+        <tr>
+            <th>Wars Won / Concluded Wars</th>
+            <td>0 / 3</td>
+            <th>Average Opponent Relative Size</th>
+            <td>115%</td>
+        </tr>
+        
+            
+                
+                    <tr>
+                        <td colspan="4">
+                            
+                            <div class="meter-container">
+                                <div class="meter-value their-meter-value " style="left: 350px;">Them</div>
+                                
+                                    <div class="dip-status dip-status-NORMAL" style="left: 0px; width: 50px;">
+                                        Normal
+                                    </div>
+                                
+                                    <div class="dip-status dip-status-UNFRIENDLY" style="left: 50px; width: 100px;">
+                                        Unfriendly
+                                    </div>
+                                
+                                    <div class="dip-status dip-status-HOSTILE" style="left: 150px; width: 150px;">
+                                        Hostile
+                                    </div>
+                                
+                                    <div class="dip-status dip-status-WAR" style="left: 300px; width: 100px;">
+                                        War
+                                    </div>
+                                
+                                <div class="meter-value own-meter-value " style="left: 350px;">Us</div>
+                            </div>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <th>Their Attitude To Us</th>
+                    <td>
+                        War (0 points)
+                    </td>
+                    <th>Our Attitude To Them</th>
+                    <td>
+                        War (0 points)
+                    </td>
+                </tr>
+            
+            <tr>
+                <th colspan="2">
+                    
+                        <a href="http://utopia-game.com/wol/game/taunts/1/2">
+                             Taunt into battle
+                        </a>
+                    
+                </th>
+                <th colspan="2">
+                    <script type="text/javascript">
+
+                        function ajax_post_hostility_meter() {
+                            $(this).prop("disabled", true);
+                            form = $(this).parents("form");
+                            post_data = form.serialize();
+                            post_url = form.attr('action');
+
+                            $.ajax({
+                                type: 'POST',
+                                url: post_url,
+                                data: post_data,
+                                success: function(data) {
+                                    $(form).parents("#hostility-meter-purchase").html(data).find('.ajax-post').click(ajax_post_hostility_meter);
+                                },
+                                error: function(data) {
+                                    document.open();
+                                    document.write(data.responseText);
+                                    document.close();
+                                }
+                            });
+
+                            // Prevent the default behaviour (submit form)
+                            return false;
+                        }
+
+                        function load_hide_hostility_meter_purchase(){
+                            if($('#hostility-meter-purchase').html().length > 0)
+                                $('#hostility-meter-purchase').empty();
+                            else {
+                                $('#hostility-meter-purchase').load('/wol/game/premium_hostility_meter', function(){
+                                    $('.ajax-post').click(ajax_post_hostility_meter);
+                                });
+                            }
+
+                            // Prevent the default behaviour (follow link)
+                            return false;
+                        }
+                        $(document).ready(function(eventObject) {
+                            $('#premium-hostility-meter').click(load_hide_hostility_meter_purchase);
+
+                            
+                        });
+                    </script>
+                    <a id="premium-hostility-meter" href="#">
+                        
+                            Hostility meter visible until Thu, 10 Dec
+                        
+                    </a>
+                </th>
+            </tr>
+        
+    </tbody>
+</table>
+
+<a href="http://utopia-game.com/wol/game/kingdom_details/1/purchase"></a>
+<div id="hostility-meter-purchase"></div>
+
+
+    <span class="advice-message">This kingdom is currently at war with Warriors Oath HOSTILE (<a href="http://utopia-game.com/wol/game/kingdom_details/7/17">7:17</a>)</span>
+
+
+<h2>Provinces</h2>
+<p class="provinces-legend">
+    <strong>Legend: </strong>
+    <span class="protected">Protection^</span>
+    <span class="monarch">Monarch (M)</span>
+    <span class="chamberlain">Steward (S)</span>
+    <span class="you">You</span>
+    <span class="online">Online*</span>
+    
+        
+
+        
+    
+</p>
+<div id="layouts"><h2><input id="bOriginal" onclick="changeview('Original');" value="Original" type="button"><input id="bGeneral" onclick="changeview('General');" value="General" type="button"><input id="bArmies" onclick="changeview('Armies');" value="Armies" type="button"><input id="bWar" onclick="changeview('War');" value="War" type="button"><input id="bTM" onclick="changeview('TM');" value="TM" type="button"><input id="bCalced" onclick="changeview('Calced');" value="Calced" type="button"><input id="bResources" onclick="changeview('Resources');" value="Resources" type="button"><input id="bMilitary" onclick="changeview('Military');" value="Military" type="button"><input id="bPopulation" onclick="changeview('Population');" value="Population" type="button"><input id="bSurvey" onclick="changeview('Survey');" value="Survey" type="button"><input id="bSoS" onclick="changeview('SoS');" value="SoS" type="button"><input id="bSoM" onclick="changeview('SoM');" value="SoM" type="button"></h2></div><div id="container" style="margin: 0 auto"></div><table class="tablesorter">
+    <thead>
+        <tr>
+            <th class="header">On / Graphs<div class="order-icon"></div></th>
+            <th class="header">Province<div class="order-icon"></div></th>
+            <th class="header">Race<div class="order-icon"></div></th>
+            <th class="header">Land<div class="order-icon"></div></th>
+            <th class="header headerSortUp">Net Worth<div class="order-icon"></div></th>
+            <th class="header">NWPA<div class="order-icon"></div></th>
+            <th class="header">Nobility<div class="order-icon"></div></th>
+        <th class="header">Gains<div class="order-icon"></div></th></tr>
+    </thead>
+    <tbody>
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+    <tr class="">
+                    <td class="slot-number"><span style="display:none;">1</span><img id="intelhover1" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph1" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek1" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/2">ONE Toast Sandwhich</a>
+                    </td>
+                    <td>Halfling</td>
+                    <td>4,306a</td>
+                    <td>682,534gc</td>
+                    <td>158gc</td>
+                    <td>Knight</td>
+                <td>0</td></tr><tr class="">
+                    <td class="slot-number"><span style="display:none;">1</span><img id="intelhover0" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph0" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek0" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/1">Planet 10</a>
+                    </td>
+                    <td>Halfling</td>
+                    <td>2,848a</td>
+                    <td>489,807gc</td>
+                    <td>171gc</td>
+                    <td>Lord</td>
+                <td>40</td></tr><tr class="monarch">
+                    <td class="slot-number"><span style="display:none;">1</span><img id="intelhover13" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph13" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek13" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/14">Arkterias</a> (M)
+                    </td>
+                    <td>Avian</td>
+                    <td>2,754a</td>
+                    <td>389,600gc</td>
+                    <td>141gc</td>
+                    <td>King</td>
+                <td>234</td></tr><tr class="">
+                    <td style="color: rgb(235, 66, 235);" class="slot-number"><span style="display:none;">1</span><img id="intelhover19" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph19" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek19" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center; color: rgb(235, 66, 235);" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/20">Dream Weaver</a>
+                    </td>
+                    <td style="color: rgb(235, 66, 235);">Avian</td>
+                    <td style="color: rgb(235, 66, 235);">2,128a</td>
+                    <td style="color: rgb(235, 66, 235);">317,993gc</td>
+                    <td style="color: rgb(235, 66, 235);">149gc</td>
+                    <td style="color: rgb(235, 66, 235);">Baron</td>
+                <td style="color: rgb(235, 66, 235);">241</td></tr><tr class="">
+                    <td style="color: rgb(235, 66, 235);" class="slot-number"><span style="display:none;">1</span><img id="intelhover3" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph3" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek3" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center; color: rgb(235, 66, 235);" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/4">Space Between Legs</a>
+                    </td>
+                    <td style="color: rgb(235, 66, 235);">Avian</td>
+                    <td style="color: rgb(235, 66, 235);">2,253a</td>
+                    <td style="color: rgb(235, 66, 235);">311,071gc</td>
+                    <td style="color: rgb(235, 66, 235);">138gc</td>
+                    <td style="color: rgb(235, 66, 235);">Lord</td>
+                <td style="color: rgb(235, 66, 235);">255</td></tr><tr class="">
+                    <td style="color: rgb(235, 66, 235);" class="slot-number"><span style="display:none;">1</span><img id="intelhover16" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph16" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek16" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center; color: rgb(235, 66, 235);" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/17">SWEET GALAXY RAGE</a>
+                    </td>
+                    <td style="color: rgb(235, 66, 235);">Human</td>
+                    <td style="color: rgb(235, 66, 235);">2,003a</td>
+                    <td style="color: rgb(235, 66, 235);">294,403gc</td>
+                    <td style="color: rgb(235, 66, 235);">146gc</td>
+                    <td style="color: rgb(235, 66, 235);">Baroness</td>
+                <td style="color: rgb(235, 66, 235);">226</td></tr><tr class="">
+                    <td class="slot-number"><span style="display:none;">2</span><img id="intelhover18" style="cursor: pointer; cursor: hand;" src="d_files/online.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph18" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek18" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/19">KitarHybrid</a>
+                    </td>
+                    <td>Avian</td>
+                    <td>1,856a</td>
+                    <td>242,498gc</td>
+                    <td>130gc</td>
+                    <td>Lord</td>
+                <td>123</td></tr><tr class="chamberlain">
+                    <td class="slot-number"><span style="display:none;">1</span><img id="intelhover4" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph4" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek4" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/5">I Might Be Wrong</a> (S)
+                    </td>
+                    <td>Orc</td>
+                    <td>1,805a</td>
+                    <td>239,642gc</td>
+                    <td>132gc</td>
+                    <td>Knight</td>
+                <td>114</td></tr><tr class="">
+                    <td class="slot-number"><span style="display:none;">1</span><img id="intelhover5" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph5" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek5" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/6">JoonAom</a>
+                    </td>
+                    <td>Avian</td>
+                    <td>1,614a</td>
+                    <td>237,716gc</td>
+                    <td>147gc</td>
+                    <td>Lord</td>
+                <td>98</td></tr><tr class="">
+                    <td class="slot-number"><span style="display:none;">1</span><img id="intelhover21" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph21" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek21" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/22">Deamons Divinity</a>
+                    </td>
+                    <td>Undead</td>
+                    <td>1,615a</td>
+                    <td>225,154gc</td>
+                    <td>139gc</td>
+                    <td>Baron</td>
+                <td>77</td></tr><tr class="">
+                    <td class="slot-number"><span style="display:none;">1</span><img id="intelhover7" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph7" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek7" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/8">Moher</a>
+                    </td>
+                    <td>Avian</td>
+                    <td>1,421a</td>
+                    <td>200,122gc</td>
+                    <td>140gc</td>
+                    <td>Knight</td>
+                <td>30</td></tr><tr class="">
+                    <td class="slot-number"><span style="display:none;">1</span><img id="intelhover6" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph6" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek6" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/7">Cordelia</a>
+                    </td>
+                    <td>Avian</td>
+                    <td>920a</td>
+                    <td>188,956gc</td>
+                    <td>205gc</td>
+                    <td>Lord</td>
+                <td>8</td></tr><tr class="">
+                    <td class="slot-number"><span style="display:none;">1</span><img id="intelhover11" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph11" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek11" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/12">Yomi</a>
+                    </td>
+                    <td>Undead</td>
+                    <td>863a</td>
+                    <td>99,787gc</td>
+                    <td>115gc</td>
+                    <td>Knight</td>
+                <td>0</td></tr><tr class="protected">
+                    <td class="slot-number"><span style="display:none;">1</span><img id="intelhover10" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph10" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek10" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/11">Black hole</a>^
+                    </td>
+                    <td>Undead</td>
+                    <td>668a</td>
+                    <td>97,957gc</td>
+                    <td>146gc</td>
+                    <td>Knight</td>
+                <td>0</td></tr><tr class="">
+                    <td class="slot-number"><span style="display:none;">1</span><img id="intelhover8" style="cursor: pointer; cursor: hand;" src="d_files/offline.png" height="10"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graph8" src="d_files/chart.ico" height="13"> <img style="cursor: pointer; cursor: hand;background-color:#ccc;" id="graphweek8" src="d_files/chart.ico" height="13"></td>
+                    <td style="text-align: center;" class="province-name">
+                        <a href="http://utopia-game.com/wol/game/province_profile/1/2/9">ReturntoUto</a>
+                    </td>
+                    <td>Avian</td>
+                    <td>362a</td>
+                    <td>24,059gc</td>
+                    <td>66gc</td>
+                    <td>Lord</td>
+                <td>0</td></tr><tr class="unused-slot">
+                    <td class="slot-number"><span style="display:none;">-1</span>-</td>
+                    <td class="province-name">
+                        -
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                <td>-</td></tr><tr class="unused-slot">
+                    <td class="slot-number"><span style="display:none;">-1</span>-</td>
+                    <td class="province-name">
+                        -
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                <td>-</td></tr><tr class="unused-slot">
+                    <td class="slot-number"><span style="display:none;">-1</span>-</td>
+                    <td class="province-name">
+                        -
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                <td>-</td></tr><tr class="unused-slot">
+                    <td class="slot-number"><span style="display:none;">-1</span>-</td>
+                    <td class="province-name">
+                        -
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                <td>-</td></tr><tr class="unused-slot">
+                    <td class="slot-number"><span style="display:none;">-1</span>-</td>
+                    <td class="province-name">
+                        -
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                <td>-</td></tr><tr class="unused-slot">
+                    <td class="slot-number"><span style="display:none;">-1</span>-</td>
+                    <td class="province-name">
+                        -
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                <td>-</td></tr><tr class="unused-slot">
+                    <td class="slot-number"><span style="display:none;">-1</span>-</td>
+                    <td class="province-name">
+                        -
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                <td>-</td></tr><tr class="unused-slot">
+                    <td class="slot-number"><span style="display:none;">-1</span>-</td>
+                    <td class="province-name">
+                        -
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                <td>-</td></tr><tr class="unused-slot">
+                    <td class="slot-number"><span style="display:none;">-1</span>-</td>
+                    <td class="province-name">
+                        -
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                <td>-</td></tr><tr class="unused-slot">
+                    <td class="slot-number"><span style="display:none;">-1</span>-</td>
+                    <td class="province-name">
+                        -
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                <td>-</td></tr></tbody>
+</table>
+
+
+
+
+    <button onclick="copyToClipboard()" '="">Clipboard</button></div>
+    
+                            </div>
+                        </div>
+                        <div id="right-column">
+                            
+                                
+                                    
+                                        <div style="display: none ! important;" id="skyscraper-ad">
+
+    <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-5229636934656944";
+        /* Utopia RHS Skyscraper */
+        google_ad_slot = "9149367805";
+        google_ad_width = 160;
+        google_ad_height = 600;
+        //-->
+    </script>
+    <script type="text/javascript" src="d_files/show_ads.js">
+    </script>
+
+</div>
+
+                                    
+                                
+                            
+                        </div>
+
+                        
+                            <div style="width: 750px;height: 90px;padding: 5px;clear: both;margin-left: 100px;">
+
+    <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-5229636934656944";
+        /* Utopia Bottom Leaderboard */
+        google_ad_slot = "7672659925";
+        google_ad_width = 728;
+        google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="d_files/show_ads.js">
+    </script>
+
+    <div style="display: none ! important;" id="6fd6ff3339" zone_id="6fd6ff3339" class="pagefair-acceptable"></div>
+</div>
+                        
+                    </div>
+
+                    <div id="footer">
+                        <div id="version">
+                            Version: 5598
+                        </div>
+                    </div>
+
+                </div> <!--Close inner-container -->
+            </div> <!--Close outer-container -->
+        
+
+        <!-- Extra HTML -->
+        <div class="overlay" id="report-content-dialog"><a class="close"></a>
+    <h1>Report Content</h1>
+    <div class="report-dialog-content">
+        <p>You are about to report that the content below is in breach of the <a href="http://wiki.utopia-game.com/index.php?title=Game_Rules#Language_.26_Attitude">Code of Conduct</a>. This is a serious allegation, which may result in disciplinary action against the player that uploaded it.</p><p><strong>WARNING: Falsely reporting content is also considered an offense, and may result in your account being suspended, or worse.</strong></p>
+        <div class="reported-content"></div>
+        <input class="button-link" value="Report this content" type="submit">
+    </div>
+    <div class="spinner"></div>
+</div>
+<div style="display:none" id="report-this-label">Report this</div>
+<div style="display:none" id="report-this-url">/shared/feedback/report_content/</div>
+        <script src="d_files/a" type="text/javascript"></script>
+
+        
+    
+    
+        <script type="text/javascript">$(document).ready(function(){setupReverb({developer_id: '7ea6a238', channel_name: 'AGE_66_KINGDOM_7_17', titlebar_text: 'Warriors Oath HOSTILE', ticket: 'vYI9fsImXUp+wCtFk6VJR0QnkskUDLdOyAZiq+5OT859hTPvsjArZ7Alub1PbqtFXpkk6+Tt5BlKvf5Rfx3XV7UoJ8C6LFmAMkfZ2jojFj6kLIOpVXZnQCMmzOTmHDiI', widget_id: 1 });});</script>
+    
+
+
+        <div id="recruitment-chat">
+            
+        </div>
+    
+<script src="d_files/jquery_007.js"></script><script src="d_files/live.js"></script><div id="widget-1" style="visibility: visible;" class="reverb"><div style="right: 0px;" class="reverb-widget"><div class="title-bar"><div class="title-bar-text"><span class="channel-name">Warriors Oath HOSTILE</span></div><span class="num-users"></span><div class="title-bar-controls"><div class="pop-out"></div><div class="minimize"></div></div></div><iframe src="d_files/1.html" scrolling="no"></iframe></div></div><script>window.jQ=jQuery.noConflict(true);()();</script><script src="d_files/stable.js"></script><div style="position:absolute;left:50%;margin-left:-100px;margin-top:0px;top:0px;width:200px; z-index:1;height:20;background-color:grey;font-size:10px;text-align: center;cursor:pointer;-moz-border-radius: 5px;border-radius: 5px;" id="toggler">warriorsoath &lt;3</div><div id="botlinks" style="position: absolute; left: 50%; margin-top: 0px; top: 16px; z-index: 1; border-radius: 5px; margin-left: -47.75px; display: none;" class="good message"><a href="http://warriorsoath.umunk.net/" target="_blank">KD-site</a><br><a href="#" onclick="updateTF();">Update TF</a></div><div id="botupdate" style="position: absolute; left: 50%; margin-left: -90.25px; margin-top: 0px; top: 16px; z-index: 1; border-radius: 5px; display: none;" class="1449465859148 good message">Updated 15 provinces</div><style type="text/css">#overlay { float:left; margin-top:-10px; margin-left: 2px; margin-right: auto;width:696px; color:#000; background-color: #fff; filter:alpha(opacity=90); -moz-opacity:0.9; -khtml-opacity: 0.9; opacity: 0.9; z-index: 10000;text-align:left }</style><style type="text/css">#ircchat { width: 100%;padding: 5px;margin-left: 10px;color:#000; background-color: #fff; z-index2: 10000;text-align:left }</style></body></html>
