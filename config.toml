@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "http://bryanwongbh.github.io/unconventional/"
+baseurl = "https://unconventional.co/"
 languageCode = "en-us"
 title = "Think Different"
 theme = "hugo-cactus-theme"
